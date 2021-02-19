@@ -1,0 +1,33 @@
+:root {
+  --theme-white-1: #eeeeee;
+  --theme-white-2: #aaaaaa;
+  --theme-black-1: #151515;
+  --theme-black-2: #252525;
+  --theme-black-3: #333333;
+  --theme-black-4: #414141;
+  --theme-blue-1: #5E81F4;
+  --theme-blue-2: #7EA1F4;
+  --theme-purple-1: #5d55fa;
+  --theme-purple-2: #7d75fa;
+  --theme-red-1: #CD5963;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-black-2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-blue-1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-blue-2);
+}
+
+::-webkit-scrollbar-track-piece {
+  background: var(--theme-black-2);
+}

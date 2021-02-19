@@ -1,0 +1,63 @@
+#new-note form, #new-note form form > div {
+  height: 100%;
+}
+
+#new-note form button[type="submit"] {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: var(--theme-blue-1);
+  z-index: 1000;
+  bottom: 20px;
+  right: 20px;
+}
+
+.md-editor {
+  height: 100%!important;
+  color: var(--theme-white-1)!important;
+  background-color: var(--theme-black-1)!important;
+}
+
+.md-editor-toolbar {
+  color: var(--theme-white-1);
+  border-bottom: 1px solid var(--theme-black-3)!important;
+}
+
+.md-editor-toolbar, .md-editor--toolbar--mode {
+  background-color: var(--theme-black-2)!important;
+}
+
+.md-editor-content {
+  height: calc(100% - 33px);
+}
+
+.md-editor-content, .md-editor-content-editor, .wmde-markdown, .wmde-markdown-color, .md-editor-preview {
+  border: 0!important;
+  color: var(--theme-white-1)!important;
+  background-color: var(--theme-black-2)!important;
+}
+
+.wmde-markdown {
+  border-left: 3px solid var(--theme-black-3)!important;
+}
+
+.CodeMirror, .CodeMirror-code, .CodeMirror-scroll, .cm-s-defeault {
+  color: var(--theme-white-1);
+  font-size:20px!important;
+}
+
+.CodeMirror-gutter, .CodeMirror-gutters, .CodeMirror-linenumber, .CodeMirror-gutter-elt {
+  border-radius: 0!important;
+  background-color: var(--theme-black-2);
+  border-right: 1px solid var(--theme-black-3)!important;
+}
+
+.cm-link, .cm-comment, .cm-header, .cm-header-1, .cm-s-default, .cm-variable-1, .cm-variable-2 {
+  color: var(--theme-blue-1)!important;
+}
+
+#new-note code {
+  text-shadow: 0!important;
+  background-color: var(--theme-black-3)!important;
+}

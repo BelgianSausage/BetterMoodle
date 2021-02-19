@@ -1,0 +1,43 @@
+.app-nav, .app-nav__group, .app-nav__group a  {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+.app-nav {
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: auto 1fr auto;
+  background-color: var(--theme-black-2);
+}
+
+.app-nav__group {
+  padding: 0px 25px;
+  justify-content: center;
+  grid-gap: 0px 10px;
+  height: 100%;
+}
+
+.app-nav__group:nth-child(2) a {
+  padding: 0px 15px;
+}
+
+.app-nav__group:nth-child(2) a {
+  height: 100%;
+  opacity: 0.5;
+  box-sizing: border-box;
+  border-bottom: 2px solid var(--theme-black-2);
+  will-change: opacity, border-bottom;
+  transition: all 0.5s ease-in-out;
+}
+
+.app-nav__group:nth-child(2) a:hover {
+  opacity: 1;
+  border-bottom: 2px solid var(--theme-blue-1);
+}
+
+.app-nav__group:nth-child(2) a.active {
+  opacity: 1;
+  border-bottom: 2px solid var(--theme-blue-1);
+}
