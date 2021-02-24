@@ -11,6 +11,13 @@ interface IconButtonProps {
   onClick?: () => void;
 }
 
+/**
+ * Render an icon button component with the desired icon.
+ * If a href is provided then render the component inside a
+ * link. 
+ * 
+ * @param props 
+ */
 const IconButton = (props: IconButtonProps): JSX.Element => {
   const element: JSX.Element = (
     <div className="app-icon-button" onClick={props.onClick}>

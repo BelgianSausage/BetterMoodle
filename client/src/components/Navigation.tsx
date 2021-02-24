@@ -10,16 +10,38 @@ interface NavigationProps {
   currentPage?: string;
 }
 
+/**
+ * Render the navigation bar, with the link representing the current
+ * navigation context highlighted. 
+ * 
+ * TO-DO: Allow customisable central links based off children or a prop.
+ * 
+ * @param props 
+ */
 const Navigation = (props: NavigationProps): JSX.Element => {
 
+  /**
+   * Access the history hook to force navigation on sign out.
+   */
   let history = useHistory();
 
+  /**
+   * Sign out through the auth service so page request will no longer
+   * be authenticated, then redirect to the signin page.
+   *  
+   */
   const signOut = () => {
     AuthService.instance.signOut().then(() => {
       history.push("/");
     });
   }
 
+  /**
+   * Determine which of the central links should be highlighted
+   * based on the context of the navigation.
+   * 
+   * @param path 
+   */
   const getLinkClass = (path: string): string => {
     return props.currentPage?.toLowerCase() === path.toLowerCase() ? "active" : "";
   }
@@ -36,7 +58,7 @@ const Navigation = (props: NavigationProps): JSX.Element => {
         <Link to="/notes" className={getLinkClass("Notes")}>Notes</Link>
       </div>
       <div className="app-nav__group">
-        <IconButton icon={faPlus} href={`${props.currentPage}/new`} title="New" />
+        <IconButton icon={faPlus} href={`/${props.currentPage}/new`} title="New" />
         <IconButton icon={faBell} href="/notifications" title="Notifications" />
         <IconButton icon={faSignOutAlt} onClick={signOut} />
       </div>

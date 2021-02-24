@@ -3,7 +3,7 @@ import { fakeUsers } from "./users";
 
 export const fakeLessons: ILesson[] = [
   {
-    slug: "/lessons/lesson-1-example-example",
+    slug: "lesson-1-example-example",
     title: "Lesson 1 - Example example",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet 
     imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed 
@@ -12,10 +12,11 @@ export const fakeLessons: ILesson[] = [
     sanitisedHTML: `
       <h1>Lesson 1 - Example example</h1>
     `,
-    author: fakeUsers[0]
+    author: fakeUsers[0],
+    createdAt: new Date(),
   },
   {
-    slug: "/lessons/lesson-2-example-example",
+    slug: "lesson-2-example-example",
     title: "Lesson 2 - Example example",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet 
     imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed 
@@ -24,10 +25,11 @@ export const fakeLessons: ILesson[] = [
     sanitisedHTML: `
       <h1>Lesson 2 - Example example</h1>
     `,
-    author: fakeUsers[0]
+    author: fakeUsers[0],
+    createdAt: new Date(),
   },
   {
-    slug: "/lessons/lesson-3-example-example",
+    slug: "lesson-3-example-example",
     title: "Lesson 3 - Example example",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet 
     imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed 
@@ -36,10 +38,11 @@ export const fakeLessons: ILesson[] = [
     sanitisedHTML: `
       <h1>Lesson 3 - Example example</h1>
     `,
-    author: fakeUsers[0]
+    author: fakeUsers[0],
+    createdAt: new Date(),
   },
   {
-    slug: "/lessons/lesson-3-example-example",
+    slug: "lesson-3-example-example",
     title: "Lesson 3 - Example example",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet 
     imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed 
@@ -48,10 +51,11 @@ export const fakeLessons: ILesson[] = [
     sanitisedHTML: `
       <h1>Lesson 3 - Example example</h1>
     `,
-    author: fakeUsers[0]
+    author: fakeUsers[0],
+    createdAt: new Date(),
   },
   {
-    slug: "/lessons/lesson-4-example-example",
+    slug: "lesson-4-example-example",
     title: "Lesson 4 - Example example",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet 
     imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed 
@@ -60,10 +64,11 @@ export const fakeLessons: ILesson[] = [
     sanitisedHTML: `
       <h1>Lesson 4 - Example example</h1>
     `,
-    author: fakeUsers[0]
+    author: fakeUsers[0],
+    createdAt: new Date(),
   },
   {
-    slug: "/lessons/lesson-5-example-example",
+    slug: "lesson-5-example-example",
     title: "Lesson 5 - Example example",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet 
     imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed 
@@ -72,6 +77,7 @@ export const fakeLessons: ILesson[] = [
     sanitisedHTML: `
       <h1>Lesson 5 - Example example</h1>
     `,
-    author: fakeUsers[0]
+    author: fakeUsers[0],
+    createdAt: new Date(),
   }
 ]

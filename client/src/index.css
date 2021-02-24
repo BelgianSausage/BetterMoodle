@@ -56,7 +56,7 @@ a.link {
 
 .app-page__inner {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr 680px 1fr;
   overflow: auto;
 }
 
@@ -120,11 +120,18 @@ a.link {
   grid-gap: 7px 0;
 }
 
+.app-form input, .app-form textarea {
+  border-radius: 6px;
+  background-color: var(--theme-black-3);
+}
+
 .app-form input {
   height: 50px;
   text-indent: 10px;
-  border-radius: 6px;
-  background-color: var(--theme-black-3);
+}
+
+.app-form textarea {
+  resize: none;
 }
 
 .app-form button[type="submit"] {
@@ -138,4 +145,225 @@ a.link {
 
 .app-form button[type="submit"]:hover {
   background-color: var(--theme-purple-2);
+}
+
+.app-icon-label {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 0px 5px;
+}
+
+.fab {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: var(--theme-blue-1);
+  z-index: 1000;
+  bottom: 20px;
+  right: 20px;
+}
+
+/*
+ * Styling React Boostrap form component
+ */
+
+.form-group {
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 5px 0;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+input.form-control {
+  background-color: var(--theme-black-3);
+  padding: 8px 10px;
+  box-sizing: border-box;
+}
+
+textarea.form-control {
+  resize: none;
+  min-height: 150px;
+  background-color: var(--theme-black-3);
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+/*
+ * Styling React Boostrap button component
+ */
+
+.button {
+
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  will-change: background-color;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.btn-primary {
+  background-color: var(--theme-purple-1);
+}
+
+.btn-primary:hover {
+  background-color: var(--theme-purple-2);
+}
+
+.btn-secondary {
+  background-color: var(--theme-blue-1);
+}
+
+.btn-secondary:hover {
+  background-color: var(--theme-blue-2);
+}
+
+.btn-tertiary {
+  background-color: var(--theme-red-1);
+}
+
+.btn-tertiary:hover {
+  background-color: var(--theme-red-2);
+}
+
+/*
+ * Styling React Boostrap modal component
+ */
+
+.modal-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-content {
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 20px 30px;
+  background-color: var(--theme-black-2);
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 20px 0;
+  min-width: 360px;
+  width: 90%;
+  height: 90%;
+  max-width: 600px;
+  max-height: 500px;
+}
+
+.modal-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-content: start;
+  grid-gap: 0px 20px;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-footer {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 20px;
+}
+
+button.close {
+  font-size: 35px;
+  background-color: transparent;
+}
+
+
+/*
+ * Styling React Boostrap card component
+ */
+
+ .card {
+  padding: 20px 20px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  will-change: background-color;
+  transition: background-color 0.5s ease-in-out;
+  background-color: var(--theme-black-2);
+  border-left: 5px solid var(--theme-black-3);
+ }
+
+ .card.note {
+  border-left: 5px solid var(--theme-blue-1);
+}
+
+ .card.module {
+    border-left: 5px solid var(--theme-purple-1);
+ }
+
+ .card.lesson {
+  border-left: 5px solid var(--theme-red-1);
+}
+
+ .card-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+ }
+
+ .card-text {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.card-footer {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  align-items: center;
+  grid-gap: 0px 20px;
+}
+
+.card:hover {
+  background-color: var(--theme-black-3);
+}
+
+/*
+ * Styling React Boostrap breadcrumb component
+ */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.breadcrumb-item:not(:last-of-type)::after {
+  content: "/";
+  color: var(--theme-white-1);
+  margin-left: .5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: .5rem;
+}
+
+.breadcrumb-item:not(:last-of-type) {
+  color: var(--theme-blue-1);
 }

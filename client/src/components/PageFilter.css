@@ -1,0 +1,32 @@
+.app-page-filter__container {
+  padding: 20px;
+  border-radius: 6px;
+  background-color: var(--theme-black-2);
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 15px;
+  max-width: 380px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.app-page-filter__container h3 {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.app-page-filter {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background-color: var(--theme-black-3);
+  border-radius: 6px;
+  align-items: center;
+  overflow: hidden;
+  padding: 0px 10px;
+}
+
+.app-page-filter input {
+  width: 100%;
+  background-color: var(--theme-black-3);
+  height: 30px;
+}

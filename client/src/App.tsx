@@ -1,17 +1,21 @@
 import React from 'react';
+import NotFoundErrorView from './views/404';
 import NotesView from './views/notes/notes';
 import SignUpView from './views/signup';
 import SignInView from './views/signin';
-import ModulesView from './views/modules';
-import ScheduleView from './views/schedule';
+import NotificationsView from './views/notifications';
+import ScheduleView from './views/schedule/schedule';
 import DashboardView from './views/dashboard';
-import TimetableView from './views/timetable';
+import TimetableView from './views/timetable/timetable';
 import PrivateRoute from './components/PrivateRoute';
+import NoteView from './views/notes/note';
+import NewNoteView from './views/notes/new';
+import ModuleView from './views/modules/module';
+import ModulesView from './views/modules/modules';
+import LessonView from './views/lessons/lesson';
+import EditNoteView from './views/notes/edit';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import NoteView from './views/notes/note';
-import ModuleView from './views/module';
-import NewNoteView from './views/notes/new';
 
 export default class App extends React.Component {
 
@@ -24,12 +28,16 @@ export default class App extends React.Component {
           <Route path="/signin" component={SignInView} exact />
           <PrivateRoute path="/dashboard" component={DashboardView} />
           <PrivateRoute path="/notes/new" component={NewNoteView} />
+          <PrivateRoute path="/notes/edit/:slug" component={EditNoteView} />
           <PrivateRoute path="/notes/:slug" component={NoteView} />
           <PrivateRoute path="/notes" component={NotesView} />
           <PrivateRoute path="/modules/:slug" component={ModuleView} />
+          <PrivateRoute path="/lessons/:slug" component={LessonView} />
           <PrivateRoute path="/modules" component={ModulesView} />
           <PrivateRoute path="/schedule" component={ScheduleView} />
           <PrivateRoute path="/timetable" component={TimetableView} />
+          <PrivateRoute path="/notifications" component={NotificationsView} />
+          <Route component={NotFoundErrorView} />
         </Switch>
       </BrowserRouter>
     )

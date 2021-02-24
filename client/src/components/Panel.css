@@ -1,0 +1,12 @@
+.app-panel {
+  width: 100%;
+  max-width: 380px;
+}
+
+.app-panel__wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  align-items: start;
+  padding: 20px;
+  grid-gap: 15px 0;
+}

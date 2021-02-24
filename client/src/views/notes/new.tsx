@@ -32,7 +32,7 @@ export default class NewNoteView extends React.Component<NewNoteViewProps, NewNo
       <div className="app" id="new-note">
         <form onSubmit={this.onSubmit.bind(this)}>
           <MarkdownEditor visible={true} onChange={this.onChange.bind(this)} name="editor" />
-          <button title="Upload note" type="submit">
+          <button className="fab" title="Upload note" type="submit">
             <FontAwesomeIcon icon={faUpload} />
           </button>
         </form>

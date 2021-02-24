@@ -27,10 +27,20 @@
 }
 
 .app-card__title {
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .app-card__description {
   font-size: 16px;
   line-height: 26px;
+}
+
+.app-card__footer {
+  display: grid;
+  grid-gap: 0px 20px;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: end;
 }

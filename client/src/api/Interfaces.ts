@@ -13,6 +13,7 @@ export interface INote extends Navigable {
   title: string;
   description: string;
   createdAt: Date;
+  markdown: string;
   sanitisedHTML: string;
   author: IUser;
 }
@@ -30,4 +31,5 @@ export interface ILesson extends Navigable {
   author: IUser;
   description: string;
   sanitisedHTML: string;
+  createdAt: Date;
 }

@@ -1,13 +1,13 @@
 import './note.css';
 
+import Card from '../../components/Card';
 import ReactHtmlParser from 'react-html-parser';
 import Navigation from '../../components/Navigation';
+import UserPreview from '../../components/UserPreview';
 
 import { useParams } from 'react-router-dom';
 import { fakeNotes } from '../../data/notes';
 import { INote } from '../../api/Interfaces';
-import UserPreview from '../../components/UserPreview';
-import Card from '../../components/Card';
 
 const NoteView = (): JSX.Element => {
 
