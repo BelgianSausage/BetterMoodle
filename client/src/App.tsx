@@ -4,8 +4,6 @@ import NotesView from './views/notes/notes';
 import SignUpView from './views/signup';
 import SignInView from './views/signin';
 import NotificationsView from './views/notifications';
-import ScheduleView from './views/schedule/schedule';
-import DashboardView from './views/dashboard';
 import TimetableView from './views/timetable/timetable';
 import PrivateRoute from './components/PrivateRoute';
 import NoteView from './views/notes/note';
@@ -26,7 +24,7 @@ export default class App extends React.Component {
           <Route path="/" component={SignInView} exact />
           <Route path="/signup" component={SignUpView} exact />
           <Route path="/signin" component={SignInView} exact />
-          <PrivateRoute path="/dashboard" component={DashboardView} />
+          <PrivateRoute path="/dashboard" component={TimetableView} />
           <PrivateRoute path="/notes/new" component={NewNoteView} />
           <PrivateRoute path="/notes/edit/:slug" component={EditNoteView} />
           <PrivateRoute path="/notes/:slug" component={NoteView} />
@@ -34,7 +32,6 @@ export default class App extends React.Component {
           <PrivateRoute path="/modules/:slug" component={ModuleView} />
           <PrivateRoute path="/lessons/:slug" component={LessonView} />
           <PrivateRoute path="/modules" component={ModulesView} />
-          <PrivateRoute path="/schedule" component={ScheduleView} />
           <PrivateRoute path="/timetable" component={TimetableView} />
           <PrivateRoute path="/notifications" component={NotificationsView} />
           <Route component={NotFoundErrorView} />

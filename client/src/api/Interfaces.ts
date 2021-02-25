@@ -1,5 +1,6 @@
 export interface Navigable {
   slug: string;
+  title?: string;
 }
 
 export interface IUser extends Navigable {

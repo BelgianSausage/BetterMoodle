@@ -3,7 +3,7 @@ import { fakeUsers } from "./users";
 
 export const fakeLessons: ILesson[] = [
   {
-    slug: "lesson-1-example-example",
+    slug: "/lessons/lesson-1-example-example",
     title: "Lesson 1 - Example example",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet 
     imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed 
@@ -16,7 +16,7 @@ export const fakeLessons: ILesson[] = [
     createdAt: new Date(),
   },
   {
-    slug: "lesson-2-example-example",
+    slug: "/lessons/lesson-2-example-example",
     title: "Lesson 2 - Example example",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet 
     imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed 
@@ -29,7 +29,7 @@ export const fakeLessons: ILesson[] = [
     createdAt: new Date(),
   },
   {
-    slug: "lesson-3-example-example",
+    slug: "/lessons/lesson-3-example-example",
     title: "Lesson 3 - Example example",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet 
     imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed 
@@ -42,7 +42,7 @@ export const fakeLessons: ILesson[] = [
     createdAt: new Date(),
   },
   {
-    slug: "lesson-3-example-example",
+    slug: "/lessons/lesson-3-example-example",
     title: "Lesson 3 - Example example",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet 
     imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed 
@@ -55,7 +55,7 @@ export const fakeLessons: ILesson[] = [
     createdAt: new Date(),
   },
   {
-    slug: "lesson-4-example-example",
+    slug: "/lessons/lesson-4-example-example",
     title: "Lesson 4 - Example example",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet 
     imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed 
@@ -68,7 +68,7 @@ export const fakeLessons: ILesson[] = [
     createdAt: new Date(),
   },
   {
-    slug: "lesson-5-example-example",
+    slug: "/lessons/lesson-5-example-example",
     title: "Lesson 5 - Example example",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet 
     imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed 

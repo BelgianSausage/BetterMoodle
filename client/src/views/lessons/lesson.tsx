@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 
-import Panel from '../../components/Panel';
+import Page from '../page';
 import Card from 'react-bootstrap/esm/Card';
-import Navigation from '../../components/Navigation';
 import UserPreview from '../../components/UserPreview';
 import RequestHandler from '../../api/RequestHandler';
 
@@ -43,31 +42,20 @@ class Lesson extends React.Component<LessonProps, LessonState> {
 
   private getLoadedView(lesson: ILesson) {
     return (
-      <div className="app">
-        <div className="app-page">
-          <Navigation />
-          <div className="app-page__inner">
-            <Panel />
-            <div className="app-content">
-              <div className="app-content__wrapper">
-                <Card className="app-filterable">
-                  <Card.Title>{lesson.title}</Card.Title>
-                  <Card.Body>
-                    <Card.Text>{lesson.description}</Card.Text>
-                  </Card.Body>
-                </Card>
-                <div className="app-note-view">
-                  <div className="app-note__content">
-                    {ReactHtmlParser(lesson.sanitisedHTML)}
-                  </div>
-                </div>
-                <UserPreview {...lesson.author} />
-              </div>
-            </div>
-            <Panel />
-          </div>
-        </div>
-      </div>
+      <Page id="lessons">
+        <Card>
+          <Card.Title>{lesson.title}</Card.Title>
+          <Card.Body>
+            <Card.Text>{lesson.description}</Card.Text>
+          </Card.Body>
+        </Card>
+        <Card id="article">
+          <Card.Body>
+            {ReactHtmlParser(lesson.sanitisedHTML)}
+          </Card.Body>
+        </Card>
+        <UserPreview {...lesson.author} />
+      </Page>
     )
   }
 

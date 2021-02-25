@@ -6,7 +6,7 @@ import { fakeUsers } from "./users";
 export const fakeModules: IModule[] = [
   {
     code: "CM20255",
-    slug: "databases",
+    slug: "/modules/databases",
     title: "Databases",
     description: `Quisque vel mollis leo. Sed cursus augue a nisl egestas, a placerat 
     massa molestie. Aliquam lacinia, tortor eu sodales commodo.`,
@@ -15,7 +15,7 @@ export const fakeModules: IModule[] = [
   },
   {
     code: "CM20220",
-    slug: "fundamentals-of-machine-learning",
+    slug: "/modules/fundamentals-of-machine-learning",
     title: "Fundamentals of Machine Learning",
     description: `Quisque vel mollis leo. Sed cursus augue a nisl egestas, a placerat 
     massa molestie. Aliquam lacinia, tortor eu sodales commodo.`,
@@ -24,7 +24,7 @@ export const fakeModules: IModule[] = [
   },
   {
     code: "CM20253",
-    slug: "comparative-programming-languages",
+    slug: "/modules/comparative-programming-languages",
     title: "Comparative programming languages",
     description: `Quisque vel mollis leo. Sed cursus augue a nisl egestas, a placerat 
     massa molestie. Aliquam lacinia, tortor eu sodales commodo.`,
@@ -33,7 +33,7 @@ export const fakeModules: IModule[] = [
   },
   {
     code: "CM20257",
-    slug: "integrated-group-based-project",
+    slug: "/modules/integrated-group-based-project",
     title: "Integrated Group Based Project",
     description: `Quisque vel mollis leo. Sed cursus augue a nisl egestas, a placerat 
     massa molestie. Aliquam lacinia, tortor eu sodales commodo.`,
@@ -42,7 +42,7 @@ export const fakeModules: IModule[] = [
   },
   {
     code: "CM20252",
-    slug: "artificial-intelligence",
+    slug: "/modules/artificial-intelligence",
     title: "Artificial Intelligence",
     description: `Quisque vel mollis leo. Sed cursus augue a nisl egestas, a placerat 
     massa molestie. Aliquam lacinia, tortor eu sodales commodo.`,

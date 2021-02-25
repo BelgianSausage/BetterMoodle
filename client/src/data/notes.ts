@@ -3,7 +3,7 @@ import { fakeUsers } from "./users";
 
 export const fakeNotes: INote[] = [
   {
-    slug: "double-your-notes-react-coding-speed-with-this-simple-trick",
+    slug: "/notes/double-your-notes-react-coding-speed-with-this-simple-trick",
     title: "Double Your React Coding Speed With This Simple Trick",
     description: `
       In suscipit tristique quam, in tempus est tincidunt nec. Curabitur non est eu tortor 
@@ -79,7 +79,7 @@ Good luck and have fun!
     `,
   },
   {
-    slug: "note-title-2",
+    slug: "/notes/note-title-2",
     title: "Note title",
     description: "Note description",
     author: fakeUsers[0],

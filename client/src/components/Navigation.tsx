@@ -52,7 +52,6 @@ const Navigation = (props: NavigationProps): JSX.Element => {
         <IconButton icon={faHome} href="/dashboard" title="Dashboard" />
       </div>
       <div className="app-nav__group">
-        <Link to="/schedule" className={getLinkClass("Schedule")}>Schedule</Link>
         <Link to="/timetable" className={getLinkClass("Timetable")}>Timetable</Link>
         <Link to="/modules" className={getLinkClass("Modules")}>Modules</Link>
         <Link to="/notes" className={getLinkClass("Notes")}>Notes</Link>
