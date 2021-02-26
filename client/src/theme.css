@@ -32,3 +32,15 @@
 ::-webkit-scrollbar-track-piece {
   background: var(--theme-black-2);
 }
+
+.theme-1 {
+  background-color: var(--theme-blue-1);
+}
+
+.theme-2 {
+  background-color: var(--theme-purple-1);
+}
+
+.theme-3 {
+  background-color: var(--theme-red-1);
+}

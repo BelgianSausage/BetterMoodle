@@ -46,8 +46,8 @@ export default class NotesView extends React.Component<NotesProps, NotesState> {
         {
           this.state.notes.map((note: INote, n: number) => {
             return (
-              <Link to={note.slug}>
-                <Card className="note" key={n}>
+              <Link to={note.slug} key={n}>
+                <Card className="note">
                   <Card.Title>{note.title}</Card.Title>
                   <Card.Body>
                     <Card.Text>{note.description}</Card.Text>

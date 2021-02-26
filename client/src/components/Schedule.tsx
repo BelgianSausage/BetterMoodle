@@ -2,17 +2,20 @@ import './Schedule.css';
 
 import React from 'react';
 import Card from "react-bootstrap/esm/Card";
+import GoogleCalendarAPI from '../api/GoogleCalendarAPI';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import TimetableEvent from './TimetableEvent';
+import Button from 'react-bootstrap/esm/Button';
 
 interface ScheduleProps {
 
 }
 
 interface ScheduleState {
-
+  events: any[];
 }
 
 export class Schedule extends React.Component<ScheduleProps, ScheduleState> {
@@ -22,7 +25,15 @@ export class Schedule extends React.Component<ScheduleProps, ScheduleState> {
   constructor(props: ScheduleProps) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      events: []
+    };
+  }
+
+  public componentDidMount() {
+    GoogleCalendarAPI.getEvents().then((events) => {
+      this.setState({ events: events as any[] });
+    });
   }
 
   public render() {
@@ -36,9 +47,16 @@ export class Schedule extends React.Component<ScheduleProps, ScheduleState> {
             </Link>
           </div>
         </Card.Title>
-        <Card.Body>
-
+        <Card.Body className="schedule-body">
+          {
+            this.state.events.map((event: any, index: number) => {
+              return <TimetableEvent key={index} { ...event} />
+            })
+          }
         </Card.Body>
+        <Card.Footer>
+          <Button>Add to schedule</Button>
+        </Card.Footer>
       </Card>
     )
   }

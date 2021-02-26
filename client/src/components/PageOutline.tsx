@@ -83,6 +83,12 @@ export default class PageOutline extends React.Component<PageOutlineProps, PageO
             {this.getPagesLinks()}
           </ul>
         </Card.Body>
+        <hr />
+        <Card.Body>
+          <Card.Text>
+            <Link to="">Privacy</Link> &middot; <Link to="">Terms</Link> &middot; <Link to="">Cookie Policy</Link>
+          </Card.Text>
+        </Card.Body>
       </Card>
     )
   }

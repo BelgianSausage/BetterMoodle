@@ -5,13 +5,14 @@ import Button from 'react-bootstrap/Button';
 import MarkdownEditor from '@uiw/react-markdown-editor';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSave } from '@fortawesome/free-solid-svg-icons';
-import { useParams } from 'react-router-dom';
+import { faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useHistory, useParams } from 'react-router-dom';
 import { INote } from '../../api/Interfaces';
 import { fakeNotes } from '../../data/notes';
 
 interface EditNoteViewProps {
   slug: string;
+  history: any;
 }
 
 interface EditNoteViewState {
@@ -57,11 +58,17 @@ class EditView extends React.Component<EditNoteViewProps, EditNoteViewState> {
     return (
       <div className="app" id="new-note">
         <form onSubmit={this.onSubmit.bind(this)}>
+          
           <MarkdownEditor name="editor" value={this.state.note?.markdown || ""} onChange={this.onChange.bind(this)} />
 
-          <button className="fab" title="Save note" onClick={this.showModal.bind(this)}>
-            <FontAwesomeIcon icon={faSave} />
-          </button>
+          <div className="fabs">
+            <button className="fab theme-1" title="Upload note" onClick={this.showModal.bind(this)}>
+              <FontAwesomeIcon icon={faSave} />
+            </button>
+            <button title="Close note" className="fab theme-3" onClick={this.props.history.goBack}>
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+          </div>
 
           <Modal show={this.state.showModal} onHide={this.hideModal.bind(this)}>
             <Modal.Dialog>
@@ -84,6 +91,7 @@ class EditView extends React.Component<EditNoteViewProps, EditNoteViewState> {
               </Modal.Footer>
             </Modal.Dialog>
           </Modal>
+
         </form>
       </div>
     )
@@ -92,8 +100,9 @@ class EditView extends React.Component<EditNoteViewProps, EditNoteViewState> {
 }
 
 const EditNoteView = (): JSX.Element => {
+  let history = useHistory();
   let { slug }: any = useParams();
-  return (<EditView slug={slug} />);
+  return (<EditView slug={slug} history={history} />);
 }
 
 export default EditNoteView;

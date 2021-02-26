@@ -1,0 +1,27 @@
+.timetable-event {
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: var(--theme-black-3);
+  will-change: background-color;
+  transition: background-color 0.5s ease-in-out;
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 7px 0;
+}
+
+.timetable-event:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.timetable-event:hover {
+  background-color: var(--theme-black-4);
+}
+
+.timetable-datetime {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: end;
+  grid-gap: 0px 5px;
+}

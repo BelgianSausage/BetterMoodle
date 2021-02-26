@@ -57,7 +57,7 @@ const Navigation = (props: NavigationProps): JSX.Element => {
         <Link to="/notes" className={getLinkClass("Notes")}>Notes</Link>
       </div>
       <div className="app-nav__group">
-        <IconButton icon={faPlus} href={`/${props.currentPage}/new`} title="New" />
+        <IconButton icon={faPlus} href={`/notes/new`} title="Add new note" />
         <IconButton icon={faBell} href="/notifications" title="Notifications" />
         <IconButton icon={faSignOutAlt} onClick={signOut} />
       </div>

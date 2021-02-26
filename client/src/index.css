@@ -37,6 +37,10 @@ a.link {
   text-decoration: underline;
 }
 
+/*
+ * Page styling
+ */
+
 .app {
   width: 100vw;
   height: 100vh;
@@ -80,6 +84,20 @@ a.link {
   grid-gap: 16px 0;
   padding: 20px 0px;
 }
+
+@media screen and (max-width: 1400px) {
+  .app-page__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .app-panel {
+    display: none;
+  }
+}
+
+/*
+ * Form elements
+ */
 
 .app-form, .app-form__header, .app-form__body, .app-form__group {
   display: grid;
@@ -152,6 +170,10 @@ a.link {
   grid-gap: 0px 5px;
 }
 
+/*
+ * Panels
+ */
+
 .app-panel {
   width: 100%;
   width: 380px;
@@ -170,15 +192,27 @@ a.link {
   box-sizing: border-box;
 }
 
+/*
+ * Floating actions buttons
+ */
+
 .fab {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  position: absolute;
-  background-color: var(--theme-blue-1);
-  z-index: 1000;
+}
+
+
+.fabs {
+  position: fixed;
   bottom: 20px;
   right: 20px;
+  z-index: 1000;
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 10px 0;
+  justify-content: center;
+  align-items: start;
 }
 
 /*
@@ -211,7 +245,9 @@ textarea.form-control {
  * Styling React Boostrap button component
  */
 
-.button {}
+.button {
+  width: 100%;
+}
 
 .btn {
   padding: 8px 16px;
@@ -384,6 +420,10 @@ button.close {
 .breadcrumb-item:not(:last-of-type) {
   color: var(--theme-blue-1);
 }
+
+/*
+ * Article styling
+ */
 
 #article p, ul, ol {
   font-size: 16px;
