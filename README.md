@@ -27,3 +27,14 @@ npm run start
 3. The following commands will install all necessary dependencies, and open the project in a tab in your default browser at the address [https://localhost:3000](https://localhost:3000)
 
 4. To run the server open a seperate terminal and navigate to the App.java file in the server folder. Run this file.
+
+5. If you want the schedule component to work correctly you will need to edit the GoogleCalendarAPI.ts file and replace the calendar id with your Google calendar public key, and the API key with your Google Calendar API key.
+
+## Gallery
+
+![Lesson](./screenshots/lesson-1.png)
+![Note edit](./screenshots/note-edit-1.png)
+![Note edit](./screenshots/note-edit-2.png)
+![Notes](./screenshots/notes-1.png)
+![Schedule](./screenshots/schedule-1.png)
+![Timetable](./screenshots/timetable-1.png)

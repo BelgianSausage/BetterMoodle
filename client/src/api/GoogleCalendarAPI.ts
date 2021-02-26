@@ -13,8 +13,8 @@ export interface CalendarEvent {
 export default class GoogleCalendarAPI {
 
   static getEvents(): Promise<any> {
-    const CALENDAR_ID = 'philmbardy@gmail.com'
-    const API_KEY = 'AIzaSyBfm9ttKB2Xh2LW91YxYPpAemrR2YF1L20'
+    const CALENDAR_ID = '<YOUR CALENDAR ID>'
+    const API_KEY = '<YOUR API KEY>'
     
     return new Promise((resolve, reject) => {
       fetch(`https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events?key=${API_KEY}`)
