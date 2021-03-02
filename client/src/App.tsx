@@ -3,7 +3,6 @@ import NotFoundErrorView from './views/404';
 import NotesView from './views/notes/notes';
 import SignUpView from './views/signup';
 import SignInView from './views/signin';
-import NotificationsView from './views/notifications';
 import TimetableView from './views/timetable/timetable';
 import PrivateRoute from './components/PrivateRoute';
 import NoteView from './views/notes/note';
@@ -14,6 +13,7 @@ import LessonView from './views/lessons/lesson';
 import EditNoteView from './views/notes/edit';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import SettingsView from './views/settings';
 
 export default class App extends React.Component {
 
@@ -33,7 +33,7 @@ export default class App extends React.Component {
           <PrivateRoute path="/lessons/:slug" component={LessonView} />
           <PrivateRoute path="/modules" component={ModulesView} />
           <PrivateRoute path="/timetable" component={TimetableView} />
-          <PrivateRoute path="/notifications" component={NotificationsView} />
+          <PrivateRoute path="/settings" component={SettingsView} />
           <Route component={NotFoundErrorView} />
         </Switch>
       </BrowserRouter>

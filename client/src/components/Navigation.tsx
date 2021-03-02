@@ -4,7 +4,7 @@ import IconButton from './IconButton';
 import AuthService from '../api/AuthService';
 
 import { Link, useHistory } from "react-router-dom";
-import { faBell, faHome, faPlus, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faCog, faHome, faPlus, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 interface NavigationProps {
   currentPage?: string;
@@ -58,7 +58,7 @@ const Navigation = (props: NavigationProps): JSX.Element => {
       </div>
       <div className="app-nav__group">
         <IconButton icon={faPlus} href={`/notes/new`} title="Add new note" />
-        <IconButton icon={faBell} href="/notifications" title="Notifications" />
+        <IconButton icon={faCog} href="/settings" title="Settings" />
         <IconButton icon={faSignOutAlt} onClick={signOut} />
       </div>
     </div>

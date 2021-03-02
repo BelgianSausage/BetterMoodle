@@ -1,131 +1,36 @@
 .rbc-calendar {
   width: 100%;
-  margin: 20px;
   max-width: 1200px;
   justify-self: center;
   background-color: var(--theme-black-2);
   border-radius: 6px;
   padding: 20px;
-  display: grid;
-  grid-gap: 10px 0px;
-  grid-template-rows: auto 1fr;
-}
-
-.rbc-toolbar {
-  display: grid;
-  align-items: center;
-  grid-auto-flow: column;
-  grid-template-columns: auto 1fr auto;
-  justify-content: start;
-  grid-gap: 0px 15px;
-  height: 50px;
-}
-
-.rbc-toolbar-label {
-  text-align: center;
-  font-weight: bold;
-  font-size: 20px;
-  letter-spacing: 0.5px;
-}
-
-.rbc-btn-group {
-  display: grid;
-  overflow: hidden;
-  grid-auto-flow: column;
-  background-color: var(--theme-black-2);
-  border: 2px solid var(--theme-black-2);
-  grid-gap: 0px 1px;
-  height: 100%;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-}
-
-.rbc-btn-group button {
-  height: 100%;
-  padding: 0px 30px;
-  color: var(--theme-blue-1);
-  will-change: background-color;
-  transition: background-color 0.5s ease-in-out;
-  background-color: var(--theme-black-3);
-}
-
-.rbc-btn-group button:hover {
-  background-color: var(--theme-black-4);
-}
-
-.rbc-time-view {
-  display: grid;
-  grid-template-rows: auto 1fr;
-}
-
-.rbc-time-gutter {
-  display: grid;
-  grid-template-rows: repeat(1fr, 24);
-}
-
-.rbc-time-header {
-
-}
-
-.rbc-month-view {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-rows: auto repeat(5, 1fr);
-  background-color: var(--theme-black-3);
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  overflow: hidden;
-} 
-
-.rbc-month-header .rbc-header {
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  text-align: center;
+  box-sizing: border-box;
+  margin-top: 20px;
+  max-height: calc(100vh - 110px);
 }
 
 .rbc-header {
-  height: 50px;
-  display: grid;
-  align-items: center;
+  border-right: 1px solid var(--theme-black-3);
+  border-bottom: 1px solid var(--theme-black-3);
 }
 
-.rbc-row {
-  display: grid;
-  grid-auto-flow: column;
-  height: 100%;
+.rbc-month-view {
+  border: 1px solid var(--theme-black-3);
 }
 
-.rbc-row-content {
-  height: 100%;
+.rbc-month-row + .rbc-month-row {
+  border-top: 1px solid var(--theme-black-3);
 }
 
-.rbc-row .rbc-date-cell {
-  height: 100%;
-  box-sizing: border-box;
-  background-color: var(--theme-black-3);
-  will-change: background-color;
-  transition: background-color 0.5s ease-in-out;
-  position: relative;
-  border: 1px solid var(--theme-black-2);
-  border-bottom: 0;
-  border-right: 0;
+.rbc-day-bg + .rbc-day-bg {
+  border-left: 1px solid var(--theme-black-3);
 }
 
-.rbc-row .rbc-date-cell:last-of-type {
-  border-right: 0;
-}
-
-.rbc-row .rbc-date-cell:first-of-type {
-  border-left: 0;
-}
-
-.rbc-date-cell:hover {
+.rbc-day-bg.rbc-today {
   background-color: var(--theme-black-4);
 }
 
-.rbc-date-cell a {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-weight: bold;
+.rbc-off-range-bg {
+  background-color: var(--theme-black-3);
 }

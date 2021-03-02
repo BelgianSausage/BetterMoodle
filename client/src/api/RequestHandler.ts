@@ -8,6 +8,7 @@ interface LocalResources {
 
 const localResources: LocalResources = {
   "/notes/all": fakeNotes,
+  "/modules/all": fakeModules,
   "/modules/databases": fakeModules[0],
   "/modules/fundamentals-of-machine-learning": fakeModules[1],
   "/modules/comparative-programming-languages": fakeModules[2],

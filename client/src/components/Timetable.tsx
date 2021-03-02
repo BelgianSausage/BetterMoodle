@@ -1,17 +1,24 @@
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './Timetable.css';
 
 import React from 'react';
 import moment from 'moment';
 import GoogleCalendarAPI from '../api/GoogleCalendarAPI';
-
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 
 const localizer = momentLocalizer(moment);
 
+interface IEvent {
+  end: Date;
+  start: Date;
+  title: string;
+  desc?: string;
+}
+
 interface TimetableProps { }
 
 interface TimetableState { 
-  events: any[];
+  events: IEvent[];
 }
 
 export default class Timetable extends React.Component<TimetableProps, TimetableState> {
@@ -27,19 +34,20 @@ export default class Timetable extends React.Component<TimetableProps, Timetable
     };
   }
 
-  public componentDidMount() {
-    GoogleCalendarAPI.getEvents().then((events: any[]) => {
-      this.setState({ events: events });
-    });
+  componentDidMount() {
+    GoogleCalendarAPI.getEvents().then((events: any[]): void => {
+      this.setState({ events: (events as IEvent[])})
+    })
   }
-
-  public render() {
+  
+  render() {
     return (
       <Calendar 
+        step={30}
         localizer={localizer}
-        endAccessor="end"
-        startAccessor="start"
         events={this.state.events} 
+        defaultDate={new Date()}
+        views={["month", "work_week", "day", "agenda"]}
       />
     )
   }
