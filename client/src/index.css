@@ -312,9 +312,7 @@ textarea.form-control {
   grid-gap: 20px 0;
   min-width: 360px;
   width: 90%;
-  height: 90%;
   max-width: 600px;
-  max-height: 500px;
 }
 
 .modal-header {
@@ -334,6 +332,12 @@ textarea.form-control {
   display: grid;
   grid-auto-flow: column;
   grid-gap: 20px;
+  align-items: center;
+  justify-content: end;
+}
+
+.modal input {
+  width: 100%;
 }
 
 button.close {
@@ -444,4 +448,21 @@ button.close {
 
 #article ul li::before {
   content: "■";
+}
+
+/*
+ * Styling React Boostrap layout controls
+ */
+
+.row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fill, 1fr);
+  grid-gap: 0px 10px;
+  align-items: center;
+  justify-content: start;
+}
+
+.row > * {
+  width: 100%;
 }

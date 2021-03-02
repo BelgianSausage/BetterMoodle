@@ -58,9 +58,7 @@ class EditView extends React.Component<EditNoteViewProps, EditNoteViewState> {
     return (
       <div className="app" id="new-note">
         <form onSubmit={this.onSubmit.bind(this)}>
-          
           <MarkdownEditor name="editor" value={this.state.note?.markdown || ""} onChange={this.onChange.bind(this)} />
-
           <div className="fabs">
             <button className="fab theme-1" title="Upload note" onClick={this.showModal.bind(this)}>
               <FontAwesomeIcon icon={faSave} />
@@ -69,7 +67,6 @@ class EditView extends React.Component<EditNoteViewProps, EditNoteViewState> {
               <FontAwesomeIcon icon={faTimes} />
             </button>
           </div>
-
           <Modal show={this.state.showModal} onHide={this.hideModal.bind(this)}>
             <Modal.Dialog>
               <Modal.Header closeButton>

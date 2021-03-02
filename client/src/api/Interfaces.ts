@@ -4,6 +4,7 @@ export interface Navigable {
 }
 
 export interface IUser extends Navigable {
+  id: number;
   firstName: string;
   lastName: string; 
   profilePic?: string;

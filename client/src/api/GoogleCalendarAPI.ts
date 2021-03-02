@@ -1,3 +1,5 @@
+import { API_KEY, CALENDAR_ID } from "./credentials";
+
 function formatDate(date: string): string {
   if (date.length === 0) return "";
   const split: string[] = date.split("T");
@@ -13,12 +15,10 @@ export interface CalendarEvent {
 export default class GoogleCalendarAPI {
 
   static getEvents(): Promise<any> {
-    const CALENDAR_ID = '<YOUR CALENDAR ID>'
-    const API_KEY = '<YOUR API KEY>'
-    
     return new Promise((resolve, reject) => {
       fetch(`https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events?key=${API_KEY}`)
       .then(response => response.json())
+      .catch(error => reject(error))
       .then(response => {
         resolve(response.items.map((event: any) => {
           return ({
@@ -28,6 +28,7 @@ export default class GoogleCalendarAPI {
           })
         }));
       })
+      .catch(error => reject(error));
     });
   }
 
