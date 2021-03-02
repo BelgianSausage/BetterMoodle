@@ -10,15 +10,6 @@
   max-height: calc(100vh - 110px);
 }
 
-.rbc-header {
-  border-right: 1px solid var(--theme-black-3);
-  border-bottom: 1px solid var(--theme-black-3);
-}
-
-.rbc-month-view {
-  border: 1px solid var(--theme-black-3);
-}
-
 .rbc-month-row + .rbc-month-row {
   border-top: 1px solid var(--theme-black-3);
 }
@@ -29,6 +20,7 @@
 
 .rbc-day-bg.rbc-today {
   background-color: var(--theme-black-4);
+  color: var(--theme-blue-2);
 }
 
 .rbc-off-range-bg {

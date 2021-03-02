@@ -7,10 +7,12 @@
   --theme-black-4: #414141;
   --theme-blue-1: #5E81F4;
   --theme-blue-2: #7EA1F4;
+  --theme-blue-3: #a0b0d6;
   --theme-purple-1: #5d55fa;
   --theme-purple-2: #7d75fa;
   --theme-red-1: #CD5963;
   --theme-red-2: #ED7983;
+  --theme-mauve-1: #c997bd;
 }
 
 ::-webkit-scrollbar {
