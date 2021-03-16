@@ -1,0 +1,337 @@
+{
+  "calendarEvents": [
+    {
+      "id": 0,
+      "title": "All Day Event very long title",
+      "allDay": true,
+      "start": "2021-03-10T20:00:19.245Z",
+      "end": "2021-03-10T21:00:19.245Z"
+    },
+    {
+      "id": 1,
+      "title": "Long Event",
+      "start": "2021-03-10T21:00:19.245Z",
+      "end": "2021-03-10T22:00:19.245Z"
+    },
+    {
+      "id": 2,
+      "title": "DTS STARTS",
+      "start": "2021-03-10T22:00:19.245Z",
+      "end": "2021-03-10T23:00:19.245Z"
+    }
+  ],
+  "lessons": [
+    {
+      "slug": "/lessons/lesson-1-example-example",
+      "title": "Lesson 1 - Example example",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed neque diam, aliquam sed enim at, vulputate aliquam leo. In hac habitasse platea dictumst. Aliquam vel enim ante. Proin nec leo id massa luctus tincidunt.",
+      "sanitisedHTML": "<h1>Lesson 1 - Example example</h1>",
+      "author": {
+        "id": 0,
+        "slug": "/profiles/john-doe-1",
+        "firstName": "John",
+        "lastName": "Doe",
+        "profilePic": "",
+        "createdAt": "2021-03-10T23:00:19.245Z"
+      },
+      "createdAt": "2021-03-10T23:00:19.245Z"
+    },
+    {
+      "slug": "/lessons/lesson-2-example-example",
+      "title": "Lesson 2 - Example example",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed neque diam, aliquam sed enim at, vulputate aliquam leo. In hac habitasse platea dictumst. Aliquam vel enim ante. Proin nec leo id massa luctus tincidunt.",
+      "sanitisedHTML": "<h1>Lesson 2 - Example example</h1>",
+      "author": {
+        "id": 0,
+        "slug": "/profiles/john-doe-1",
+        "firstName": "John",
+        "lastName": "Doe",
+        "profilePic": "",
+        "createdAt": "2021-03-10T23:00:19.245Z"
+      },
+      "createdAt": "2021-03-10T23:00:19.245Z"
+    },
+    {
+      "slug": "/lessons/lesson-3-example-example",
+      "title": "Lesson 3 - Example example",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed neque diam, aliquam sed enim at, vulputate aliquam leo. In hac habitasse platea dictumst. Aliquam vel enim ante. Proin nec leo id massa luctus tincidunt.",
+      "sanitisedHTML": "<h1>Lesson 3 - Example example</h1>",
+      "author": {
+        "id": 0,
+        "slug": "/profiles/john-doe-1",
+        "firstName": "John",
+        "lastName": "Doe",
+        "profilePic": "",
+        "createdAt": "2021-03-10T23:00:19.245Z"
+      },
+      "createdAt": "2021-03-10T23:00:19.245Z"
+    },
+    {
+      "slug": "/lessons/lesson-3-example-example",
+      "title": "Lesson 3 - Example example",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed neque diam, aliquam sed enim at, vulputate aliquam leo. In hac habitasse platea dictumst. Aliquam vel enim ante. Proin nec leo id massa luctus tincidunt.",
+      "sanitisedHTML": "<h1>Lesson 3 - Example example</h1>",
+      "author": {
+        "id": 0,
+        "slug": "/profiles/john-doe-1",
+        "firstName": "John",
+        "lastName": "Doe",
+        "profilePic": "",
+        "createdAt": "2021-03-10T23:00:19.245Z"
+      },
+      "createdAt": "2021-03-10T23:00:19.245Z"
+    },
+    {
+      "slug": "/lessons/lesson-4-example-example",
+      "title": "Lesson 4 - Example example",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed neque diam, aliquam sed enim at, vulputate aliquam leo. In hac habitasse platea dictumst. Aliquam vel enim ante. Proin nec leo id massa luctus tincidunt.",
+      "sanitisedHTML": "<h1>Lesson 4 - Example example</h1>",
+      "author": {
+        "id": 0,
+        "slug": "/profiles/john-doe-1",
+        "firstName": "John",
+        "lastName": "Doe",
+        "profilePic": "",
+        "createdAt": "2021-03-10T23:00:19.245Z"
+      },
+      "createdAt": "2021-03-10T23:00:19.245Z"
+    },
+    {
+      "slug": "/lessons/lesson-5-example-example",
+      "title": "Lesson 5 - Example example",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed neque diam, aliquam sed enim at, vulputate aliquam leo. In hac habitasse platea dictumst. Aliquam vel enim ante. Proin nec leo id massa luctus tincidunt.",
+      "sanitisedHTML": "<h1>Lesson 5 - Example example</h1>",
+      "author": {
+        "id": 0,
+        "slug": "/profiles/john-doe-1",
+        "firstName": "John",
+        "lastName": "Doe",
+        "profilePic": "",
+        "createdAt": "2021-03-10T23:00:19.245Z"
+      },
+      "createdAt": "2021-03-10T23:00:19.245Z"
+    }
+  ],
+  "modules": [
+    {
+      "code": "CM20255",
+      "slug": "databases",
+      "title": "Databases",
+      "description": "Quisque vel mollis leo. Sed cursus augue a nisl egestas, a placerat massa molestie. Aliquam lacinia, tortor eu sodales commodo.",
+      "lessons": [
+        {
+          "slug": "/lessons/lesson-1-example-example",
+          "title": "Lesson 1 - Example example",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed neque diam, aliquam sed enim at, vulputate aliquam leo. In hac habitasse platea dictumst. Aliquam vel enim ante. Proin nec leo id massa luctus tincidunt.",
+          "sanitisedHTML": "<h1>Lesson 1 - Example example</h1>",
+          "author": {
+            "id": 0,
+            "slug": "/profiles/john-doe-1",
+            "firstName": "John",
+            "lastName": "Doe",
+            "profilePic": "",
+            "createdAt": "2021-03-10T23:00:19.245Z"
+          },
+          "createdAt": "2021-03-10T23:00:19.245Z"
+        },
+        {
+          "slug": "/lessons/lesson-2-example-example",
+          "title": "Lesson 2 - Example example",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed neque diam, aliquam sed enim at, vulputate aliquam leo. In hac habitasse platea dictumst. Aliquam vel enim ante. Proin nec leo id massa luctus tincidunt.",
+          "sanitisedHTML": "<h1>Lesson 2 - Example example</h1>",
+          "author": {
+            "id": 0,
+            "slug": "/profiles/john-doe-1",
+            "firstName": "John",
+            "lastName": "Doe",
+            "profilePic": "",
+            "createdAt": "2021-03-10T23:00:19.245Z"
+          },
+          "createdAt": "2021-03-10T23:00:19.245Z"
+        },
+        {
+          "slug": "/lessons/lesson-3-example-example",
+          "title": "Lesson 3 - Example example",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed neque diam, aliquam sed enim at, vulputate aliquam leo. In hac habitasse platea dictumst. Aliquam vel enim ante. Proin nec leo id massa luctus tincidunt.",
+          "sanitisedHTML": "<h1>Lesson 3 - Example example</h1>",
+          "author": {
+            "id": 0,
+            "slug": "/profiles/john-doe-1",
+            "firstName": "John",
+            "lastName": "Doe",
+            "profilePic": "",
+            "createdAt": "2021-03-10T23:00:19.245Z"
+          },
+          "createdAt": "2021-03-10T23:00:19.245Z"
+        },
+        {
+          "slug": "/lessons/lesson-3-example-example",
+          "title": "Lesson 3 - Example example",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed neque diam, aliquam sed enim at, vulputate aliquam leo. In hac habitasse platea dictumst. Aliquam vel enim ante. Proin nec leo id massa luctus tincidunt.",
+          "sanitisedHTML": "<h1>Lesson 3 - Example example</h1>",
+          "author": {
+            "id": 0,
+            "slug": "/profiles/john-doe-1",
+            "firstName": "John",
+            "lastName": "Doe",
+            "profilePic": "",
+            "createdAt": "2021-03-10T23:00:19.245Z"
+          },
+          "createdAt": "2021-03-10T23:00:19.245Z"
+        },
+        {
+          "slug": "/lessons/lesson-4-example-example",
+          "title": "Lesson 4 - Example example",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed neque diam, aliquam sed enim at, vulputate aliquam leo. In hac habitasse platea dictumst. Aliquam vel enim ante. Proin nec leo id massa luctus tincidunt.",
+          "sanitisedHTML": "<h1>Lesson 4 - Example example</h1>",
+          "author": {
+            "id": 0,
+            "slug": "/profiles/john-doe-1",
+            "firstName": "John",
+            "lastName": "Doe",
+            "profilePic": "",
+            "createdAt": "2021-03-10T23:00:19.245Z"
+          },
+          "createdAt": "2021-03-10T23:00:19.245Z"
+        },
+        {
+          "slug": "/lessons/lesson-5-example-example",
+          "title": "Lesson 5 - Example example",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet imperdiet dui, vel pretium purus. Phasellus vel tempor massa. Aliquam eu pulvinar eros. Sed neque diam, aliquam sed enim at, vulputate aliquam leo. In hac habitasse platea dictumst. Aliquam vel enim ante. Proin nec leo id massa luctus tincidunt.",
+          "sanitisedHTML": "<h1>Lesson 5 - Example example</h1>",
+          "author": {
+            "id": 0,
+            "slug": "/profiles/john-doe-1",
+            "firstName": "John",
+            "lastName": "Doe",
+            "profilePic": "",
+            "createdAt": "2021-03-10T23:00:19.245Z"
+          },
+          "createdAt": "2021-03-10T23:00:19.245Z"
+        }
+      ],
+      "teachers": [
+        {
+          "id": 0,
+          "slug": "/profiles/john-doe-1",
+          "firstName": "John",
+          "lastName": "Doe",
+          "profilePic": "",
+          "createdAt": "2021-03-10T23:00:19.245Z"
+        }
+      ]
+    },
+    {
+      "code": "CM20220",
+      "slug": "fundamentals-of-machine-learning",
+      "title": "Fundamentals of Machine Learning",
+      "description": "Quisque vel mollis leo. Sed cursus augue a nisl egestas, a placerat  massa molestie. Aliquam lacinia, tortor eu sodales commodo.",
+      "lessons": [],
+      "teachers": [
+        {
+          "id": 0,
+          "slug": "/profiles/john-doe-1",
+          "firstName": "John",
+          "lastName": "Doe",
+          "profilePic": "",
+          "createdAt": "2021-03-10T23:00:19.245Z"
+        }
+      ]
+    },
+    {
+      "code": "CM20253",
+      "slug": "comparative-programming-languages",
+      "title": "Comparative programming languages",
+      "description": "Quisque vel mollis leo. Sed cursus augue a nisl egestas, a placerat massa molestie. Aliquam lacinia, tortor eu sodales commodo.",
+      "lessons": [],
+      "teachers": [
+        {
+          "id": 0,
+          "slug": "/profiles/john-doe-1",
+          "firstName": "John",
+          "lastName": "Doe",
+          "profilePic": "",
+          "createdAt": "2021-03-10T23:00:19.245Z"
+        }
+      ]
+    },
+    {
+      "code": "CM20257",
+      "slug": "integrated-group-based-project",
+      "title": "Integrated Group Based Project",
+      "description": "Quisque vel mollis leo. Sed cursus augue a nisl egestas, a placerat massa molestie. Aliquam lacinia, tortor eu sodales commodo.",
+      "lessons": [],
+      "teachers": [
+        {
+          "id": 0,
+          "slug": "/profiles/john-doe-1",
+          "firstName": "John",
+          "lastName": "Doe",
+          "profilePic": "",
+          "createdAt": "2021-03-10T23:00:19.245Z"
+        }
+      ]
+    },
+    {
+      "code": "CM20252",
+      "slug": "artificial-intelligence",
+      "title": "Artificial Intelligence",
+      "description": "Quisque vel mollis leo. Sed cursus augue a nisl egestas, a placerat massa molestie. Aliquam lacinia, tortor eu sodales commodo.",
+      "lessons": [],
+      "teachers": [
+        {
+          "id": 0,
+          "slug": "/profiles/john-doe-1",
+          "firstName": "John",
+          "lastName": "Doe",
+          "profilePic": "",
+          "createdAt": "2021-03-10T23:00:19.245Z"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "slug": "/notes/double-your-notes-react-coding-speed-with-this-simple-trick",
+      "title": "Double Your React Coding Speed With This Simple Trick",
+      "description": "\n      In suscipit tristique quam, in tempus est tincidunt nec. Curabitur non est eu tortor \n      molestie rutrum in in lectus. Nulla aliquam diam a eros dictum accumsan. Donec ac nisl \n      vel tortor eleifend lacinia. Proin eget mauris et sapien eleifend ornare nec et tortor. \n    ",
+      "author": {
+        "id": 0,
+        "slug": "/profiles/john-doe-1",
+        "firstName": "John",
+        "lastName": "Doe",
+        "profilePic": "",
+        "createdAt": "2021-03-11T11:05:26.182Z"
+      },
+      "createdAt": "2021-03-11T11:05:26.182Z",
+      "markdown": "\n### Introduction\n\nIf you work with React or React Native, feel that your coding speed is slow, \nspend your time catching bugs, and not adding new features, work with long \nsource files and have a hard time finding stuff, and implement the same logic \nover and over again, you will double your coding speed if you refactor your \ncode into reusable building blocks.\n\n### How you will learn\n\nWe will look at a React component, that has been written by a developer like you. \nAnd we will step by step refactor it to the superior level. Expect to receive lots \nof insights, that will boost your React coding speed.\n\n* This article will contain lots of React code. Do not be afraid of the code. Take your time reading and understanding it. If you have any questions feel free to ask them in the comments, I will reply 10  times of 10.\n\n* It’s a big article. The content is comprehensive. Feel free to save this article in your tabs and read it in several attempts.\n\n* Even though the code will be in React Native you can easily use this article to boost your React skills.\n\nGood luck and have fun!\n    ",
+      "sanitisedHTML": "\n\n<h3>Introduction</h3>\n\n<p>\n  If you work with React or React Native, feel that your coding speed is slow, \n  spend your time catching bugs, and not adding new features, work with long \n  source files and have a hard time finding stuff, and implement the same logic \n  over and over again, you will double your coding speed if you refactor your \n  code into reusable building blocks.\n</p>\n\n<h3>How you will learn</h3>\n\n<p>\n  We will look at a React component, that has been written by a developer like you. \n  And we will step by step refactor it to the superior level. Expect to receive lots \n  of insights, that will boost your React coding speed.\n</p>\n\n<ul>\n  <li>\n    This article will contain lots of React code. Do not be afraid of the code. Take your time reading \n    and understanding it. If you have any questions feel free to ask them in the comments, I will reply 10 \n    times of 10.\n  </li>\n  <li>\n    It’s a big article. The content is comprehensive. Feel free to save this article in your tabs and read \n    it in several attempts.\n  </li>\n  <li>\n    Even though the code will be in React Native you can easily use this article to boost your React skills.\n  </li>\n</ul>\n\n<p>\n  Good luck and have fun!\n</p>\n\n    "
+    },
+    {
+      "slug": "/notes/note-title-2",
+      "title": "Note title",
+      "description": "Note description",
+      "author": {
+        "id": 0,
+        "slug": "/profiles/john-doe-1",
+        "firstName": "John",
+        "lastName": "Doe",
+        "profilePic": "",
+        "createdAt": "2021-03-11T11:05:26.182Z"
+      },
+      "createdAt": "2021-03-11T11:05:26.182Z",
+      "markdown": "\n    \n    ",
+      "sanitisedHTML": "\n\n    "
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "slug": "john-doe",
+      "firstName": "John",
+      "lastName": "Doe",
+      "profilePic": "",
+      "createdAt": "2021-03-11T11:05:26.182Z"
+    }
+  ]
+}

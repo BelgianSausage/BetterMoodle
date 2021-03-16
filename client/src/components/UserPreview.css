@@ -1,0 +1,47 @@
+.app-user-preview {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  align-items: center;
+  grid-gap: 0px 10px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  background-color: var(--theme-black-2);
+  will-change: background-color;
+  transition: background-color 0.5s ease-in-out;
+  border-left: 5px solid var(--theme-black-3);
+}
+
+.app-user-preview:hover {
+  background-color: var(--theme-black-3);
+}
+
+.app-user-preview:hover .app-user-preview__picture {
+  background-color: var(--theme-black-4);
+}
+
+.app-user-preview__picture {
+  width: 60px;
+  height: 60px;
+  will-change: background-color;
+  transition: background-color 0.5s ease-in-out;
+  background-color: var(--theme-black-3);
+  border-radius: 50%;
+}
+
+.app-user-preview__details {
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 5px 0;
+}
+
+.app-user-preview__details > div:first-child {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--theme-blue-1);
+}
+
+.app-user-preview__details > div:last-child {
+  font-size: 14px;
+  color: var(--theme-white-2);
+}

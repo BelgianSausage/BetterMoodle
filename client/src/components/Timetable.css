@@ -1,0 +1,28 @@
+.rbc-calendar {
+  width: 100%;
+  max-width: 1200px;
+  justify-self: center;
+  background-color: var(--theme-black-2);
+  border-radius: 6px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  max-height: calc(100vh - 110px);
+}
+
+.rbc-month-row + .rbc-month-row {
+  border-top: 1px solid var(--theme-black-3);
+}
+
+.rbc-day-bg + .rbc-day-bg {
+  border-left: 1px solid var(--theme-black-3);
+}
+
+.rbc-day-bg.rbc-today {
+  background-color: var(--theme-black-4);
+  color: var(--theme-blue-2);
+}
+
+.rbc-off-range-bg {
+  background-color: var(--theme-black-3);
+}

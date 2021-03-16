@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  max-height: 100vh;
+  color: var(--theme-white-1);
+  background-color: var(--theme-black-1);
+  font-family: 'Fira Sans', arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+input, select, textarea, button {
+  outline: 0;
+  border: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.link {
+  color: var(--theme-purple-1);
+  text-decoration: underline;
+}
+
+/*
+ * Page styling
+ */
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  box-sizing: border-box;
+}
+
+.app-page {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.app-page__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  overflow: auto;
+}
+
+.app-content {
+  display: grid;
+  grid-auto-flow: row;
+  align-items: start;
+  justify-content: center;
+  height: 100%;
+  grid-template-columns: 1fr;
+}
+
+.app-content__wrapper {
+  max-width: 680px;
+  width: 100%;
+  display: grid;
+  grid-auto-flow: row;
+  align-items: start;
+  justify-self: center;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  grid-gap: 16px 0;
+  padding: 20px 0px;
+}
+
+@media screen and (max-width: 1400px) {
+  .app-page__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .app-panel {
+    display: none;
+  }
+}
+
+/*
+ * Form elements
+ */
+
+.app-form, .app-form__header, .app-form__body, .app-form__group {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+.app-form {
+  border-radius: 6px;
+  padding: 10px 60px;
+  min-width: 320px;
+  width: 90%;
+  max-width: 460px;
+  background-color: var(--theme-black-2);
+}
+
+.app-form__header {
+  text-align: center;
+  padding: 60px 0;
+  grid-gap: 10px 0;
+}
+
+.app-form__header h2 {
+  font-size: 26px;
+  margin-bottom: 40px;
+}
+
+.app-form__body {
+  grid-gap: 35px 0;
+}
+
+.app-form__footer {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.app-form__group {
+  grid-gap: 7px 0;
+}
+
+.app-form input, .app-form textarea {
+  border-radius: 6px;
+  background-color: var(--theme-black-3);
+}
+
+.app-form input {
+  height: 50px;
+  text-indent: 10px;
+}
+
+.app-form textarea {
+  resize: none;
+}
+
+.app-form button[type="submit"] {
+  color: var(--theme-white-1);
+  background-color: var(--theme-purple-1);
+  padding: 20px 20px;
+  border-radius: 6px;
+  will-change: background-color;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.app-form button[type="submit"]:hover {
+  background-color: var(--theme-purple-2);
+}
+
+.app-icon-label {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 0px 5px;
+}
+
+/*
+ * Panels
+ */
+
+.app-panel {
+  width: 100%;
+  width: 380px;
+  box-sizing: border-box;
+  max-height: calc(100vh - 70px);
+  position: relative;
+}
+
+.app-panel__wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  align-items: start;
+  padding: 20px;
+  grid-gap: 15px 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/*
+ * Floating actions buttons
+ */
+
+.fab {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+
+.fabs {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 10px 0;
+  justify-content: center;
+  align-items: start;
+}
+
+/*
+ * Styling React Boostrap form component
+ */
+
+.form-group {
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 5px 0;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+select.form-control {
+  background-color: var(--theme-black-3);
+  padding: 8px 10px;
+  width: 100%;
+}
+
+input.form-control {
+  background-color: var(--theme-black-3);
+  padding: 8px 10px;
+  box-sizing: border-box;
+}
+
+textarea.form-control {
+  resize: none;
+  min-height: 150px;
+  background-color: var(--theme-black-3);
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/*
+ * Styling React Boostrap button component
+ */
+
+.button {
+  width: 100%;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  will-change: background-color;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.btn-primary {
+  background-color: var(--theme-purple-1);
+}
+
+.btn-primary:hover {
+  background-color: var(--theme-purple-2);
+}
+
+.btn-secondary {
+  background-color: var(--theme-blue-1);
+}
+
+.btn-secondary:hover {
+  background-color: var(--theme-blue-2);
+}
+
+.btn-tertiary {
+  background-color: var(--theme-red-1);
+}
+
+.btn-tertiary:hover {
+  background-color: var(--theme-red-2);
+}
+
+/*
+ * Styling React Boostrap modal component
+ */
+
+.modal-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+  z-index: 10000;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-content {
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 20px 30px;
+  background-color: var(--theme-black-2);
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 20px 0;
+  min-width: 360px;
+  width: 90%;
+  max-width: 600px;
+}
+
+.modal-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-content: start;
+  grid-gap: 0px 20px;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-footer {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 20px;
+  align-items: center;
+  justify-content: end;
+}
+
+.modal input {
+  width: 100%;
+}
+
+button.close {
+  font-size: 35px;
+  background-color: transparent;
+}
+
+/*
+ * Styling React Boostrap card component
+ */
+
+.card {
+  padding: 20px 20px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  will-change: background-color;
+  transition: background-color 0.5s ease-in-out;
+  background-color: var(--theme-black-2);
+}
+
+.card.note {
+  border-left: 5px solid var(--theme-blue-1);
+}
+
+.card.module {
+  border-left: 5px solid var(--theme-purple-1);
+}
+
+.card.lesson {
+  border-left: 5px solid var(--theme-red-1);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr auto auto;
+  grid-gap: 0px 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.card hr {
+  margin: 20px 0;
+  border: 1px solid var(--theme-black-4);
+}
+
+.card-footer {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  align-items: center;
+  grid-gap: 0px 20px;
+}
+
+.card:hover {
+  background-color: var(--theme-black-3);
+}
+
+/*
+ * Alert styling
+ */
+.alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-gap: 0px 10px;
+  justify-content: center;
+  background-color: var(--theme-red-1);
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.alert .h4 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.alert .close {
+  position: fixed;
+  top: 0;
+  right: 10px;
+}
+
+.sr-only {
+  display: none;
+}
+
+
+/*
+ * Article styling
+ */
+
+#article p, ul, ol {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+#article ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+#article ul li {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 0px 10px;
+  padding: 10px 0;
+}
+
+#article ul li::before {
+  content: "■";
+}
+
+/*
+ * Styling React Boostrap layout controls
+ */
+
+.row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fill, 1fr);
+  grid-gap: 0px 10px;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+}
+
+.row > * {
+  width: 100%;
+}
+
+.col {
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 5px 0;
+}

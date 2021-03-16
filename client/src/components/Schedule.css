@@ -1,0 +1,49 @@
+.schedule {
+  box-sizing: border-box;
+  max-height: calc(100vh - 110px);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 20px 0;
+}
+
+.schedule-body {
+  overflow-y: scroll;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr;
+  grid-gap: 15px 0;
+}
+
+.schedule-title {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-content: start;
+}
+
+.schedule .card-footer {
+  grid-template-columns: 1fr;
+}
+
+.schedule-event {
+  border-radius: 4px;
+  padding: 20px 10px;
+  box-sizing: border-box; 
+  background-color: var(--theme-black-3);
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr;
+  grid-gap: 10px 0;
+}
+
+.schedule-event__title {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.schedule-event__datetime {
+  text-align: right;
+  font-size: 14px;
+}
