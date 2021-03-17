@@ -165,13 +165,14 @@ def get_all_modules():
   user = jwt.decode(token, "secret", algorithms="HS256")
   userID = user['userId']
   query = """
-  SELECT module.ModuleID, module.Name, module.Slug, module.Description 
-  FROM module INNER JOIN usermodule
-  ON module.ModuleID = usermodule.ModuleID
-  WHERE UserID = %s"""
+    SELECT module.ModuleID, module.Name, module.Slug, module.Description 
+    FROM module INNER JOIN usermodule
+    ON module.ModuleID = usermodule.ModuleID
+    WHERE UserID = %s;
+  """
   db = get_db()
   cursor = db.cursor()
-  cursor.execute(query, (userID))
+  cursor.execute(query, (userID,))
   results = cursor.fetchall()
   results = [module_to_json(module) for module in results]
   cursor.close()
