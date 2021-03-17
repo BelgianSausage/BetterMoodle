@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/esm/Button';
 import IModule from '../../interfaces/module.interface';
 import withRouterProps, { WithRouterProps } from '../../components/withRouterProps';
 import RequestHandler from '../../api/RequestHandler';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface EditModuleViewProps extends WithRouterProps { }
 
@@ -41,7 +43,10 @@ class EditModuleView extends React.Component<EditModuleViewProps, EditModuleView
         <Modal show={true}>
           <Form method="POST" action="/modules/edit" onSubmit={this.onSubmit.bind(this)}>
             <Modal.Dialog>
-              <Modal.Title>Edit module</Modal.Title>
+              <Modal.Header>
+                <Modal.Title>Edit module</Modal.Title>
+                <FontAwesomeIcon icon={faTimes} onClick={this.props.history.goBack} />
+              </Modal.Header>
               <Modal.Body>
                 <Form.Control type="hidden" name="id" defaultValue={this.state.module?.id} />
                 <Form.Group>

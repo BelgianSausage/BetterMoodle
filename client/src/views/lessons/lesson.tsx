@@ -4,6 +4,8 @@ import Card from 'react-bootstrap/esm/Card';
 import RequestHandler from '../../api/RequestHandler';
 import ILesson from "../../interfaces/lesson.interface";
 import withRouterProps, { WithRouterProps } from '../../components/withRouterProps';
+import { Spinner } from 'react-bootstrap';
+import ReactMarkdown from 'react-markdown';
 
 interface LessonProps extends WithRouterProps { }
 
@@ -35,22 +37,30 @@ class Lesson extends React.Component<LessonProps, LessonState> {
     this.getLesson();
   }
 
-  render() {
+  renderLesson(lesson: ILesson): JSX.Element {
     return (
-      <Page id="lessons">
+      <>
         <Card>
-          <Card.Title>{this.state.lesson?.title}</Card.Title>
+          <Card.Title>{lesson.title}</Card.Title>
           <Card.Body>
-            <Card.Text>{this.state.lesson?.description}</Card.Text>
+            <Card.Text>{lesson.description}</Card.Text>
           </Card.Body>
         </Card>
-        <Card id="article">
+        <Card>
           <Card.Body>
             <Card.Text>
-              {this.state.lesson?.body}
+              <ReactMarkdown source={lesson.body ?? ""} />
             </Card.Text>
           </Card.Body>
         </Card>
+      </>
+    )
+  }
+
+  render() {
+    return (
+      <Page id="lessons">
+        {this.state.lesson ? this.renderLesson(this.state.lesson as ILesson) : <Spinner animation="border" variant="primary" />}
       </Page>
     )
   }

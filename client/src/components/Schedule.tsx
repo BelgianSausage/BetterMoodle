@@ -24,9 +24,7 @@ class ScheduleEvent extends React.Component<ScheduleEventProps, ScheduleEventSta
     showModal: false,
   };
 
-  updateSelf() {
-
-  }
+  updateSelf() {}
 
   render() {
     return (
@@ -75,7 +73,6 @@ export class Schedule extends React.Component<ScheduleProps, ScheduleState> {
     const events = response as ICalendarEvent[];
     if (events != null) {
       this.setState({ events: events });
-      console.log(events);
     }
   }
 

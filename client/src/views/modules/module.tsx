@@ -41,7 +41,7 @@ class Module extends React.Component<ModuleProps, ModuleState> {
   private async getLessons() {
     if (this.state.module != null) {
       if (this.state.module.id != null) {
-        const response = await RequestHandler.get(`/lessons/${this.state.module.id}`);
+        const response = await RequestHandler.get(`/modules/lessons/${this.state.module.id}`);
         const lessons = response as ILesson[];
         if (lessons != null) {
           this.setState({ lessons: lessons });
@@ -50,9 +50,9 @@ class Module extends React.Component<ModuleProps, ModuleState> {
     }
   }
   
-  componentDidMount() {
-    this.getModule();
-    this.getLessons();
+  async componentDidMount() {
+    await this.getModule();
+    await this.getLessons();
   }
 
   private getLessonCards() {
@@ -60,7 +60,7 @@ class Module extends React.Component<ModuleProps, ModuleState> {
     
     return this.state.lessons.map((lesson: ILesson, n: number) => {
       return (
-        <Link to={lesson.slug} key={n}>
+        <Link to={`/lessons/${lesson.slug}`} key={n}>
           <Card className="lesson">
             <Card.Title>{lesson.title}</Card.Title>
             <Card.Body>

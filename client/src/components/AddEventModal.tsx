@@ -17,6 +17,13 @@ interface AddEventModalProps {
 
 export default class AddEventModal extends React.Component<AddEventModalProps> {
 
+  /**
+   * Trigger when the add event modal form is submitted. To prevent redirects, we capture this
+   * submit event and perform our own post request. This creates the event server side. Once this
+   * occurs, close the modal and update the displayed events to show the newly created event client side.
+   * 
+   * @param event 
+   */
   async handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const response = await RequestHandler.post("/events/new", event);

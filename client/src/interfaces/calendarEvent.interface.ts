@@ -1,7 +1,3 @@
-export interface ICalendarEventDate {
-  dateTime: string;
-}
-
 export default interface ICalendarEvent {
   id: string;
   title?: string;

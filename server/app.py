@@ -57,15 +57,15 @@ def lesson_to_json(lesson):
   if lesson != None:
     if len(lesson) >= 9:
       json = {}
-      json['id'] = module[0]
-      json['moduleId'] = module[1]
-      json['slug'] = module[2]
-      json['author'] = module[3]
-      json['title'] = module[4]
-      json['description'] = module[5]
-      json['body'] = module[6]
-      json['createdAt'] = module[7]
-      json['published'] = module[8]
+      json['id'] = lesson[0]
+      json['moduleId'] = lesson[1]
+      json['slug'] = lesson[2]
+      json['author'] = lesson[3]
+      json['title'] = lesson[4]
+      json['description'] = lesson[5]
+      json['body'] = lesson[6]
+      json['createdAt'] = lesson[7]
+      json['published'] = lesson[8]
 
       return json
 
@@ -82,14 +82,15 @@ def institution_to_json(institution):
 
 def event_to_json(event):
   if event != None:
-    if len(event) >= 6:
+    if len(event) >= 7:
       json = {}
       json['id'] = event[0]
       json['title'] = event[1]
       json['date'] = event[2]
       json['start'] = event[3]
       json['end'] = event[4]
-      json['description'] = event[5]
+      json['author'] = event[5]
+      json['description'] = event[6]
 
       return json
 
@@ -261,6 +262,22 @@ def get_module(slug):
   return jsonify(module_to_json(result))
 
 
+@app.route(BASE_URL + '/modules/lessons/<moduleId>', methods=['GET'])
+def get_lessons_by_module(moduleId):
+  """ Return all lessons, in their json format, that match the ModuleID. """
+
+  query = "SELECT * FROM lesson WHERE ModuleID = %s;"
+  db = get_db()
+  cursor = db.cursor()
+  cursor.execute(query, (moduleId,))
+  results = cursor.fetchall()
+  results = [lesson_to_json(lesson) for lesson in results]
+  cursor.close()
+  db.close()
+
+  return jsonify(results)
+
+
 """
 -------------------------------------------
 -------------- NOTES ROUTES ---------------
@@ -382,20 +399,55 @@ def get_note(slug):
 
 """
 
-@app.route(BASE_URL + '/lessons/<moduleId>', methods=['GET'])
-def get_lessons(moduleId):
-  """ Return all lessons, in their json format, that match the ModuleID. """
+@app.route(BASE_URL + '/lessons/all', methods=['GET'])
+def get_all_lessons():
+  """ Return all lessons, regardless of module """
 
-  query = "SELECT * FROM lesson WHERE ModuleID = %s;"
+  query = "SELECT * FROM lesson;"
   db = get_db()
   cursor = db.cursor()
-  cursor.execute(query, (moduleId,))
+  cursor.execute(query)
   results = cursor.fetchall()
   results = [lesson_to_json(lesson) for lesson in results]
   cursor.close()
   db.close()
 
   return jsonify(results)
+
+
+@app.route(BASE_URL + '/lessons/new', methods=['POST']) 
+def new_lesson():
+  """ Create a new lesson. """
+
+  token = request.form['token']
+  user = jwt.decode(token, "secret", algorithms="HS256")
+
+  if user != None:
+    if user['userId'] != None:
+      body = request.form['body']
+      title = request.form['title']
+      moduleId = request.form['id']
+      description = request.form['description']
+      slug = slugify(title)
+
+      query = """
+        INSERT INTO lesson(LessonID, ModuleID, Slug, Author, Title, Description, Body, CreatedAt, Published)
+        VALUES (UUID(), %s, %s, %s, %s, %s, %s, CURDATE(), TRUE);
+      """
+
+      db = get_db()
+      cursor = db.cursor()
+      cursor.execute(query, (moduleId, slug, user['userId'], title, description, body))
+      db.commit()
+      cursor.close()
+      db.close()
+
+      return jsonify({ 'code': 200 })
+
+    else:
+      return jsonify({ 'code': 404 }) # could not find user
+  else:
+    return jsonify({ 'code': 403 }) # user does not have permission
 
 
 @app.route(BASE_URL + '/lessons/edit', methods=['POST'])  
@@ -439,6 +491,21 @@ def delete_lesson(lessonId):
   return jsonify({ 'code': 200 })
 
 
+@app.route(BASE_URL + '/lessons/<slug>', methods=['GET'])
+def get_lesson(slug):
+  
+  query = "SELECT * FROM lesson WHERE Slug = %s;"
+  db = get_db()
+  cursor = db.cursor()
+  cursor.execute(query, (slug,))
+  result = cursor.fetchone()
+  db.commit()
+  cursor.close()
+  db.close() 
+  
+  return jsonify(lesson_to_json(result))
+
+
 """
 
 --------------------------------------------
@@ -453,6 +520,8 @@ def get_all_events():
     Return all events. Ideally this function returns all events which include
     their UserID as a listener in the UserEvent bridging table.
   """
+
+  print(request.args.get("token"))
 
   db = get_db()
   query = "SELECT * FROM event"
@@ -530,22 +599,33 @@ def edit_event():
   return jsonify({ 'code': 200 })
 
 
-@app.route(BASE_URL + '/events/delete/<eventId>', methods=['GET'])  
-def delete_event(eventId):
+@app.route(BASE_URL + '/events/delete', methods=['POST'])  
+def delete_event():
   """ 
     Delete the event matching the EventID. Ideally this would also purge the
     UserEvent bridging table of all event listeners. 
   """
 
-  query = "DEELTE FROM event WHERE eventId = %s"
-  db = get_db()
-  cursor = db.cursor()
-  cursor.execute(query, (eventId,))
-  db.commit()
-  cursor.close()
-  db.close()
+  eventId = request.form['id']
+  token = request.form['token']
+  user = jwt.decode(token, "secret", algorithms="HS256")
 
-  return jsonify({ 'code': 200 })
+  if user != None:
+    if user['userId'] != None:
+      query = "DELETE FROM event WHERE EventID = %s"
+      db = get_db()
+      cursor = db.cursor()
+      cursor.execute(query, (eventId,))
+      db.commit()
+      cursor.close()
+      db.close()
+
+      return jsonify({ 'code': 200 })
+
+    else:
+      return jsonify({ 'code': 404 }) # could not find user
+  else:
+    return jsonify({ 'code': 403 }) # user does not have permission
 
 
 """

@@ -1,12 +1,15 @@
 import React from 'react';
 import Page from '../page';
+import ReactMarkdown from 'react-markdown';
 import Card from 'react-bootstrap/esm/Card';
-import { Link } from 'react-router-dom';
 import INote from '../../interfaces/note.interface';
 import RequestHandler from '../../api/RequestHandler';
+
+import { Link } from 'react-router-dom';
 import withRouterProps, { WithRouterProps } from '../../components/withRouterProps';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Spinner } from 'react-bootstrap';
 
 interface NoteProps extends WithRouterProps { }
 
@@ -57,25 +60,28 @@ class Note extends React.Component<NoteProps, NoteState> {
     }
   }
 
+  renderNote(note: INote) {
+    return (
+      <>
+        <Card>
+          <Card.Title>{note.title} {this.renderEditOptions()}</Card.Title>
+          <Card.Body>
+            <Card.Text>{note.description}</Card.Text>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Body>
+            <ReactMarkdown source={note.body ?? ""} />
+          </Card.Body>
+        </Card>
+      </>
+    )
+  }
+
   render() {
     return (
       <Page id="notes">
-        <Card>
-          <Card.Title>
-            {this.state.note?.title}
-            {this.renderEditOptions()}
-          </Card.Title>
-          <Card.Body>
-            <Card.Text>
-              {this.state.note?.description}
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card id="article">
-          <Card.Body>
-            {this.state.note?.body}
-          </Card.Body>
-        </Card>
+        {this.state.note ? this.renderNote(this.state.note as INote) : <Spinner animation="border" variant="primary" />}
       </Page>
     )
   }

@@ -15,19 +15,48 @@ interface EditEventModalProps extends ICalendarEvent {
 
 export default class EditEventModal extends React.PureComponent<EditEventModalProps> {
 
+  /**
+   * Convert the ISO date string for the end time of the event into a string
+   * that can be used as the default value for the end time time input control.
+   */
   get endString(): string {
     const split: string[] = this.props.end.split("T");
     return split.length > 1 ? split[1].substring(0, 5): this.props.end;
   }
 
+  /**
+   * Convert the ISO date string for the start time of the event into a string
+   * that can be used as the default value for the start time time input control.
+   */
   get startString(): string {
     const split: string[] = this.props.start.split("T");
     return split.length > 1 ? split[1].substring(0, 5): this.props.start;
   }
 
+  /**
+   * Called when the edit event form is submitted. As we don't want to redirect, capture
+   * the event and submit it through a seperate fetch request. This edits the event on the 
+   * server side. If this was successful, close the modal and trigger a reloading of events.
+   * 
+   * @param event 
+   */
   async handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const response = await RequestHandler.post("/events/edit", event); 
+    this.props.handleHide();
+    this.props.handleEditEvent();
+  }
+
+  /**
+   * Called when the delete event button is clicked. Add the currently selected event id to the
+   * form data and post this as a DELETE request. Once the event is delete server side, update the
+   * events displayed to show that this has occured.
+   */
+  async handleDeleteEvent() {
+    const formData = new FormData();
+    formData.append("id", this.props.id);
+    const response = await RequestHandler.delete("/events/delete", formData);
+    const json = await response.json();
     this.props.handleHide();
     this.props.handleEditEvent();
   }
@@ -60,8 +89,8 @@ export default class EditEventModal extends React.PureComponent<EditEventModalPr
               </Form.Group>
             </Modal.Body>
             <Modal.Footer>
-              <Button type="submit">Edit event</Button>
-              <Button variant="tertiary">Delete event</Button>
+              <Button variant="primary" type="submit">Edit event</Button>
+              <Button variant="tertiary" onClick={this.handleDeleteEvent.bind(this)}>Delete event</Button>
             </Modal.Footer>
           </Modal.Dialog>
         </Form>

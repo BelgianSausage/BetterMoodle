@@ -9,4 +9,5 @@ export default interface ILesson extends INavigable {
   sanitisedHTML: string;
   createdAt: Date;
   body?: string;
+  moduleId?: string;
 }
