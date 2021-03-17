@@ -3,19 +3,40 @@
   max-width: 1200px;
   justify-self: center;
   background-color: var(--theme-black-2);
-  border-radius: 6px;
+  border-radius: 20px;
   padding: 20px;
   box-sizing: border-box;
   margin-top: 20px;
   max-height: calc(100vh - 110px);
 }
 
+.rbc-btn-group button{
+  color: var(--theme-blue-1);
+  border-color: var(--theme-black-4);
+  border-width: 2px;
+}
+
+.rbc-month-view{
+  border-width: 1px;
+  border-color: var(--theme-grey-1);
+}
+
+.rbc-toolbar-label{
+  color: var(--theme-blue-2);
+}
+
+.rbc-header{
+  color: var(--theme-blue-1);
+  border-color: var(--theme-grey-1);
+  border-width: 1px;
+}
+
 .rbc-month-row + .rbc-month-row {
-  border-top: 1px solid var(--theme-black-3);
+  border-top: 2px solid var(--theme-black-3);
 }
 
 .rbc-day-bg + .rbc-day-bg {
-  border-left: 1px solid var(--theme-black-3);
+  border-left: 2px solid var(--theme-black-3);
 }
 
 .rbc-day-bg.rbc-today {
@@ -24,5 +45,81 @@
 }
 
 .rbc-off-range-bg {
-  background-color: var(--theme-black-3);
+  background-color: var(--theme-black-1);
+}
+
+.rbc-time-gutter{
+  color: var(--theme-blue-2);
+}
+
+.rbc-time-content{
+  border-color: var(--theme-grey-1);
+}
+
+.rbc-time-view{
+  border-color: var(--theme-grey-1);
+}
+
+.rbc-events-container{
+  border-color: var(--theme-black-3);
+  border-width: 2px;
+}
+
+.rbc-now{
+  background-color: var(--theme-black-4);
+}
+
+.rbc-timeslot-group{
+  border-color: var(--theme-black-3);
+  border-width: 1px;
+}
+
+.rbc-day-slot .rbc-time-slot {
+  border-top: 1px solid var(--theme-black-3);
+}
+
+.rbc-row{
+  border-color: violet;
+}
+
+.rbc-current-time-indicator{
+  height: 2px;
+  background-color: var(--theme-blue-2);
+}
+
+.rbc-time-header-content{
+  border-color: var(--theme-grey-1);
+  border-width: 2px;
+}
+
+.rbc-agenda-view table.rbc-agenda-table tbody > tr > td + td {
+  border-top: 2px solid var(--theme-black-4);
+  border-left: 1px solid var(--theme-black-4);
+}
+
+.rbc-time-column .rbc-timeslot-group {
+  text-align: center;
+  vertical-align: middle;
+  flex: 1 1;
+}
+
+.rbc-agenda-view table.rbc-agenda-table {
+  width: 100%;
+  border: 2px solid var(--theme-grey-1);
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.rbc-agenda-content{
+  border-color: var(--theme-black-3);
+  border-width: 1px;
+}
+
+.rbc-agenda-date-cell{
+  color: var(--theme-blue-2);
+  border-top: 1px solid var(--theme-black-4);
+}
+
+.rbc-agenda-time-cell{
+  color: var(--theme-blue-2);
 }
