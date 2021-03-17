@@ -161,11 +161,17 @@ def get_all_modules():
     would use the requester's UserID, and fetch their modules from the modules 
     table through the UserModule bridging table. 
   """
-
-  query = "SELECT * FROM module;"
+  token = request.args.get('token')
+  user = jwt.decode(token, "secret", algorithms="HS256")
+  userID = user['userId']
+  query = """
+  SELECT module.ModuleID, module.Name, module.Slug, module.Description 
+  FROM module INNER JOIN usermodule
+  ON module.ModuleID = usermodule.ModuleID
+  WHERE UserID = %s"""
   db = get_db()
   cursor = db.cursor()
-  cursor.execute(query)
+  cursor.execute(query, (userID))
   results = cursor.fetchall()
   results = [module_to_json(module) for module in results]
   cursor.close()
