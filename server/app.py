@@ -157,9 +157,7 @@ def create_user(username, password, first_name, last_name, institution_id, privi
 @app.route(BASE_URL + '/modules/all', methods=['GET'])
 def get_all_modules():
   """ 
-    Return all modules in their json form. Note: a more correct implementation
-    would use the requester's UserID, and fetch their modules from the modules 
-    table through the UserModule bridging table. 
+    Return all modules for a user in their json form. 
   """
   token = request.args.get('token')
   user = jwt.decode(token, "secret", algorithms="HS256")
@@ -295,15 +293,22 @@ def get_lessons_by_module(moduleId):
 @app.route(BASE_URL + '/notes/all', methods=['GET'])
 def all_notes():
   """
-    Return all notes. Note: ideally this function would use the
-    UserID of the requester to find modules they take and then select
-    notes which belong to this set of modules.
+    Return the notes from the modules this user takes
   """
+  token = request.args.get('token')
+  user = jwt.decode(token, "secret", algorithms="HS256")
+  userID = user['userId']
 
-  query = "SELECT * FROM note;"
+  query = """
+  SELECT note.NoteID, note.Title, note.Slug, note.Description, note.Body, note.ModuleID, note.isPublic, note.CreatedAt, note.Published, note.UserID
+  FROM note
+  INNER JOIN module ON note.ModuleID = module.ModuleID
+  INNER JOIN usermodule on module.ModuleID = usermodule.ModuleID
+  WHERE usermodule.UserID = %s;"""
+
   db = get_db()
   cursor = db.cursor()
-  cursor.execute(query)
+  cursor.execute(query, (userID,))
   results = cursor.fetchall()
   cursor.close()
   db.close()
