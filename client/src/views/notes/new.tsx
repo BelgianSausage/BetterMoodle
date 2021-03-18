@@ -21,10 +21,6 @@ class NewNote extends React.Component<NewNoteViewProps, NewNoteViewState> {
     modules: [],
   }
 
-  navigateBack() {
-    this.props.history.goBack();
-  }
-
   async getModules() {
     const response = await RequestHandler.get("/modules/all");
     const modules = response as IModule[];
@@ -35,7 +31,10 @@ class NewNote extends React.Component<NewNoteViewProps, NewNoteViewState> {
 
   async onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    RequestHandler.post("/notes/new", event);
+    const response = await RequestHandler.post("/notes/new", event);
+    if (response != null) {
+      this.props.history.push("/notes");
+    }
   }
 
   componentDidMount() {
@@ -50,7 +49,7 @@ class NewNote extends React.Component<NewNoteViewProps, NewNoteViewState> {
             <Modal.Dialog>
               <Modal.Header>
                 <Modal.Title>Create a new note</Modal.Title>
-                <FontAwesomeIcon icon={faTimes} onClick={this.navigateBack.bind(this)} />
+                <FontAwesomeIcon icon={faTimes} onClick={this.props.history.goBack} />
               </Modal.Header>
               <Modal.Body>
                 <Form.Group>

@@ -26,7 +26,10 @@ class EditView extends React.Component<EditNoteViewProps, EditNoteViewState> {
 
   async onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    RequestHandler.post("/notes/edit", event);
+    const response = await RequestHandler.post("/notes/edit", event);
+    if (response != null) {
+      this.props.history.push("/notes");
+    }
   }
 
   async getNote() {
@@ -45,10 +48,6 @@ class EditView extends React.Component<EditNoteViewProps, EditNoteViewState> {
     }
   }
 
-  navigateBack() {
-    this.props.history.goBack();
-  }
-
   async componentDidMount() {
     await this.getNote();
     await this.getModules();
@@ -62,7 +61,7 @@ class EditView extends React.Component<EditNoteViewProps, EditNoteViewState> {
             <Modal.Dialog>
               <Modal.Header>
                 <Modal.Title>Edit note</Modal.Title>
-                <FontAwesomeIcon icon={faTimes} onClick={this.navigateBack.bind(this)} />
+                <FontAwesomeIcon icon={faTimes} onClick={this.props.history.goBack} />
               </Modal.Header>
               <Modal.Body>
                 <Form.Control name="id" type="hidden" defaultValue={this.state.note?.id} />
