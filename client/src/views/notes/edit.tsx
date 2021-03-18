@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/esm/Button';
 import IModule from '../../interfaces/module.interface';
+import { Col, Row } from 'react-bootstrap';
 
 interface EditNoteViewProps extends WithRouterProps { }
 
@@ -70,12 +71,23 @@ class EditView extends React.Component<EditNoteViewProps, EditNoteViewState> {
                   <Form.Control type="text" name="title" placeholder="Title" defaultValue={this.state.note?.title} />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Module</Form.Label>
-                  <Form.Control as="select" name="moduleId">
-                    {this.state.modules?.map((module: IModule, index: number) => (
-                      <option value={module.id} key={index}>{module.title}</option>
-                    ))}
-                  </Form.Control>
+                  <Row style={{ gridTemplateColumns: "1fr 1fr" }}>
+                    <Col>
+                      <Form.Label>Module</Form.Label>
+                      <Form.Control as="select" name="moduleId">
+                        {this.state.modules?.map((module: IModule, index: number) => (
+                          <option value={module.id} key={index}>{module.title}</option>
+                        ))}
+                      </Form.Control>
+                    </Col>
+                    <Col>
+                      <Form.Label>Visibility</Form.Label>
+                      <Form.Control as="select" name="published" defaultValue="TRUE">
+                        <option value="FALSE">Hidden</option>
+                        <option value="TRUE">Visible</option>
+                      </Form.Control>
+                    </Col>
+                  </Row>
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Description</Form.Label>

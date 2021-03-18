@@ -331,6 +331,7 @@ def create_note():
   body = request.form['body']
   visibility = request.form['published']
   slug = slugify(title)
+  
 
   query = """
     INSERT INTO note (Title, Slug, Description, Body, ModuleID, IsPublic, CreatedAt, Published, UserID)
