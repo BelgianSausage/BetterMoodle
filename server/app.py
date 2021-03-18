@@ -26,7 +26,7 @@ def get_db():
 
 def note_to_json(note):
   if note != None:
-    if len(note) >= 9:
+    if len(note) >= 10:
       json = {}
       json['id'] = note[0]
       json['title'] = note[1]
@@ -37,6 +37,7 @@ def note_to_json(note):
       json['isPublic'] = note[6]
       json['createdAt'] = note[7]
       json['published'] = note[8]
+      #json['flagged'] = note[9]
 
       return json
 
@@ -304,7 +305,7 @@ def all_notes():
   FROM note
   INNER JOIN module ON note.ModuleID = module.ModuleID
   INNER JOIN usermodule on module.ModuleID = usermodule.ModuleID
-  WHERE usermodule.UserID = %s;"""
+  WHERE usermodule.UserID = %s AND note.IsPublic = 1;"""
 
   db = get_db()
   cursor = db.cursor()
@@ -328,16 +329,17 @@ def create_note():
   moduleId = request.form['moduleId']
   description = request.form['description']
   body = request.form['body']
+  visibility = request.form['published']
   slug = slugify(title)
 
   query = """
     INSERT INTO note (Title, Slug, Description, Body, ModuleID, IsPublic, CreatedAt, Published, UserID)
-    VALUES (%s, %s, %s, %s, %s, TRUE, CURDATE(), CURDATE(), 0);
+    VALUES (%s, %s, %s, %s, %s, %s, CURDATE(), CURDATE(), 0);
   """
 
   db = get_db()
   cursor = db.cursor()
-  cursor.execute(query, (title, slug, description, body, moduleId))
+  cursor.execute(query, (title, slug, description, body, moduleId, visibility))
   db.commit()
   cursor.close()
   db.close()
@@ -356,17 +358,18 @@ def edit_note():
   title = request.form['title']
   description = request.form['description']
   body = request.form['body']
+  visibility = request.form['published']
   slug = slugify(title)
 
   sql = """
     UPDATE note
-    SET ModuleID = %s, Title = %s, Description = %s, Body = %s, Slug = %s
+    SET ModuleID = %s, Title = %s, Description = %s, Body = %s, Slug = %s, IsPublic = %s
     WHERE NoteID = %s;
   """
 
   db = get_db()
   cursor = db.cursor()
-  cursor.execute(sql, (moduleId, title, description, body, slug, noteId))
+  cursor.execute(sql, (moduleId, title, description, body, slug, visibility, noteId))
   db.commit()
   cursor.close()
   db.close()
@@ -393,11 +396,13 @@ def delete_note(noteId):
 def get_note(slug):
   """ Returns the json of a note, given its slug """
 
+  # return whether it is flagged
   query = "SELECT * FROM note WHERE Slug = %s;"
   db = get_db()
   cursor = db.cursor()
   cursor.execute(query, (slug,))
   result = cursor.fetchone()
+  # append true or false on to result
   cursor.close()
   db.close()
 
@@ -533,7 +538,7 @@ def get_all_events():
     their UserID as a listener in the UserEvent bridging table.
   """
 
-  print(request.args.get("token"))
+  #print(request.args.get("token"))
 
   db = get_db()
   query = "SELECT * FROM event"
@@ -722,6 +727,14 @@ def signup():
       return jsonify({ "error": "User already exists." })
   else:
     return jsonify({ "error": "Passwords do not match." })
+
+
+"""
+
+"""
+@app.route(BASE_URL + '/flag/new', methods=['POST'])
+def newFlag():
+  pass
 
 if __name__ == '__main__':
   app.run(port = 8080)
