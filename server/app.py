@@ -324,10 +324,11 @@ def create_note():
   description = request.form['description']
   body = request.form['body']
   slug = slugify(title)
+  
 
   query = """
     INSERT INTO note (Title, Slug, Description, Body, ModuleID, IsPublic, CreatedAt, Published, UserID)
-    VALUES (%s, %s, %s, %s, %s, TRUE, CURDATE(), CURDATE(), 0);
+    VALUES (%s, %s, %s, %s, %s, %s, CURDATE(), CURDATE(), 0);
   """
 
   db = get_db()

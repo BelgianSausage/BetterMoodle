@@ -7,8 +7,9 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import IModule from '../../interfaces/module.interface';
 import withRouterProps, { WithRouterProps } from '../../components/withRouterProps';
+import { Col, Row } from 'react-bootstrap';
 
-interface NewNoteViewProps extends WithRouterProps {}
+interface NewNoteViewProps extends WithRouterProps { }
 
 interface NewNoteViewState {
   modules: IModule[];
@@ -36,7 +37,7 @@ class NewNote extends React.Component<NewNoteViewProps, NewNoteViewState> {
     event.preventDefault();
     RequestHandler.post("/notes/new", event);
   }
-  
+
   componentDidMount() {
     this.getModules();
   }
@@ -57,12 +58,23 @@ class NewNote extends React.Component<NewNoteViewProps, NewNoteViewState> {
                   <Form.Control type="text" name="title" placeholder="Title" />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Module</Form.Label>
-                  <Form.Control as="select" name="moduleId">
-                    {this.state.modules?.map((module: IModule, index: number) => (
-                      <option value={module.id} key={index}>{module.title}</option>
-                    ))}
-                  </Form.Control>
+                  <Row style={{ gridTemplateColumns: "1fr 1fr" }}>
+                    <Col>
+                      <Form.Label>Module</Form.Label>
+                      <Form.Control as="select" name="moduleId">
+                        {this.state.modules?.map((module: IModule, index: number) => (
+                          <option value={module.id} key={index}>{module.title}</option>
+                        ))}
+                      </Form.Control>
+                    </Col>
+                    <Col>
+                      <Form.Label>Visibility</Form.Label>
+                      <Form.Control as="select" name="published" defaultValue="TRUE">
+                        <option value="FALSE">Hidden</option>
+                        <option value="TRUE">Visible</option>
+                      </Form.Control>
+                    </Col>
+                  </Row>
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Description</Form.Label>
