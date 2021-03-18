@@ -33,7 +33,7 @@ export default class Timetable extends React.Component<TimetableProps, Timetable
     selectedDate: undefined,
     selectedStart: undefined,
     selectedEnd: undefined,
-    selectedEvent: { id: "", date: "", start: "", end: "", title: "", description: "" }
+    selectedEvent: { id: "", date: "", start: new Date(), end: new Date(), title: "", description: "" }
   }
 
   async getEvents() {
@@ -41,10 +41,10 @@ export default class Timetable extends React.Component<TimetableProps, Timetable
     const events = response as ICalendarEvent[];
     if (events != null) {
       const calendarEvents = events.map((event: ICalendarEvent) => {
-        const end = dateStringsToDate(event.date, event.end);
-        const start = dateStringsToDate(event.date, event.start);
-        event.end = end.toISOString()
-        event.start = start.toISOString()
+        const end = dateStringsToDate(event.date, event.end as unknown as string);
+        const start = dateStringsToDate(event.date, event.start as unknown as string);
+        event.end = end;
+        event.start = start;
         return event;
       })
       this.setState({ events: calendarEvents });

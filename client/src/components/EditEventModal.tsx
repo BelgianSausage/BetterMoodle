@@ -20,8 +20,8 @@ export default class EditEventModal extends React.PureComponent<EditEventModalPr
    * that can be used as the default value for the end time time input control.
    */
   get endString(): string {
-    const split: string[] = this.props.end.split("T");
-    return split.length > 1 ? split[1].substring(0, 5): this.props.end;
+    const split: string[] = this.props.end.toISOString().split("T");
+    return split.length > 1 ? split[1].substring(0, 5): this.props.end.toISOString();
   }
 
   /**
@@ -29,8 +29,8 @@ export default class EditEventModal extends React.PureComponent<EditEventModalPr
    * that can be used as the default value for the start time time input control.
    */
   get startString(): string {
-    const split: string[] = this.props.start.split("T");
-    return split.length > 1 ? split[1].substring(0, 5): this.props.start;
+    const split: string[] = this.props.start.toISOString().split("T");
+    return split.length > 1 ? split[1].substring(0, 5): this.props.start.toISOString();
   }
 
   /**

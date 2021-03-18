@@ -4,6 +4,6 @@ export default interface ICalendarEvent {
   summary?: string;
   description?: string;
   date: string;
-  end: string;
-  start: string; 
+  end: Date;
+  start: Date; 
 }
