@@ -7,6 +7,7 @@ import Navigable from '../interfaces/navigable.interface';
 
 interface PageProps {
   id: string;
+  context?: string;
   content?: Navigable[];
   children?: React.ReactNode | React.ReactNode[];
 }
@@ -21,7 +22,7 @@ export default class Page extends React.Component<PageProps> {
           <div className="app-page__inner">
             <div className="app-panel">
               <div className="app-panel__wrapper">
-                <PageOutline content={this.props.content} />
+                <PageOutline context={this.props.context} content={this.props.content} />
               </div>
             </div>
             <div className="app-content">

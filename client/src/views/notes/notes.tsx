@@ -2,9 +2,9 @@ import React from 'react';
 import Page from '../page';
 import Card from 'react-bootstrap/esm/Card';
 import RequestHandler from '../../api/RequestHandler';
-
-import { Link } from 'react-router-dom';
 import INote from '../../interfaces/note.interface';
+import { NoteCard } from '../../components/Cards';
+import { Spinner } from 'react-bootstrap';
 
 interface NotesProps { }
 
@@ -14,14 +14,8 @@ interface NotesState {
 
 export default class NotesView extends React.Component<NotesProps, NotesState> {
 
-  public state: NotesState;
-
-  constructor(props: NotesProps) {
-    super(props);
-
-    this.state = {
-      notes: [],
-    }
+  state: NotesState = {
+    notes: [],
   }
 
   async getNotes() {
@@ -35,9 +29,9 @@ export default class NotesView extends React.Component<NotesProps, NotesState> {
     this.getNotes();
   }
 
-  public render() {
+  render() {
     return (
-      <Page id="notes" content={this.state.notes}>
+      <Page id="notes" context="notes" content={this.state.notes}>
         <Card>
           <Card.Title>Notes</Card.Title>
           <Card.Body>
@@ -48,23 +42,7 @@ export default class NotesView extends React.Component<NotesProps, NotesState> {
             </Card.Text>
           </Card.Body>
         </Card>
-        {
-          this.state.notes.map((note: INote, n: number) => {
-            return (
-              <Link to={`/notes/${note.slug}`} key={n}>
-                <Card className="note">
-                  <Card.Title>{note.title}</Card.Title>
-                  <Card.Body>
-                    <Card.Text>{note.description}</Card.Text>
-                  </Card.Body>
-                  <Card.Footer>
-                    <div>{note.createdAt}</div>
-                  </Card.Footer>
-                </Card>
-              </Link>
-            )
-          })
-        }
+        {this.state.notes ? this.state.notes.map((note: INote, n: number) => <NoteCard {...note} key={n} />) : <Spinner animation="border" variant="primary" />}
       </Page>
     )
   }

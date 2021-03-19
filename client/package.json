@@ -24,6 +24,7 @@
     "react-dom": "^17.0.1",
     "react-markdown": "^5.0.3",
     "react-router-dom": "^5.2.0",
+    "react-router-hash-link": "^2.4.0",
     "react-scripts": "4.0.2",
     "sanitize-html": "^2.3.2",
     "spdy-transport": "^3.0.0",
@@ -58,6 +59,7 @@
     "@types/react-big-calendar": "^0.30.0",
     "@types/react-html-parser": "^2.0.1",
     "@types/react-router-dom": "^5.1.7",
+    "@types/react-router-hash-link": "^1.2.1",
     "@types/sanitize-html": "^1.27.1"
   },
   "proxy": "http://localhost:8080"

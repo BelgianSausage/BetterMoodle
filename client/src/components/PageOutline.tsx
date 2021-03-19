@@ -5,10 +5,11 @@ import Card from 'react-bootstrap/esm/Card';
 
 import { faFilter, faSearch, faHashtag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import INavigable from '../interfaces/navigable.interface';
 
 interface PageOutlineProps {
+  context?: string;
   content?: INavigable[];
 }
 
@@ -26,11 +27,8 @@ export default class PageOutline extends React.Component<PageOutlineProps, PageO
    * @param length 
    * @returns 
    */
-  private truncate(str: string | undefined, length: number = 30) {
-    if (str != null) {
-      return str.length <= length ? str : str.slice(0, length) + '...';
-    }
-    return "";
+  truncate(str: string | undefined, length: number = 30) {
+    return str != null ? str.length <= length ? str : str.slice(0, length) + '...' : "";
   }
 
   /**
@@ -39,17 +37,21 @@ export default class PageOutline extends React.Component<PageOutlineProps, PageO
    * 
    * @returns 
    */
-  private getPagesLinks() {
-    const links: JSX.Element[] = [];
-    this.props.content?.map((value: INavigable, index: number) => {
-      links.push(
-        <Link to={value.slug} key={index}>
+  getPagesLinks(content: INavigable[]) {
+    return content.map((value: INavigable, index: number) =>  {
+      const children = (
+        <>
           <FontAwesomeIcon icon={faHashtag} />
           <div>{this.truncate(value.title)}</div>
-        </Link>
+        </>
       )
-    })
-    return links;
+
+      if(value.slug.substring(0, 1) !== "#") {
+        return <Link to={this.props.context ? `/${this.props.context}/${value.slug}` : value.slug} key={index}>{children}</Link>
+      }
+
+      return <a href={value.slug} key={index}>{children}</a>
+    });
   }
 
   /**
@@ -58,7 +60,7 @@ export default class PageOutline extends React.Component<PageOutlineProps, PageO
    *  
    * @param event 
    */
-  private handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+  handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const match: string = event.target.value.toLowerCase();
     const content = document.querySelector('.app-content');
     if (content !== null) {
@@ -71,7 +73,7 @@ export default class PageOutline extends React.Component<PageOutlineProps, PageO
     }
   }
 
-  public render() {
+  render() {
     return (
       <Card id="page-search">
         <Card.Title>
@@ -82,19 +84,14 @@ export default class PageOutline extends React.Component<PageOutlineProps, PageO
         </Card.Title>
         <Card.Body>
           <div className="page-search-search">
-            <input
-              type="text"
-              name="filter"
-              placeholder="Search page"
-              onChange={this.handleChange.bind(this)}
-            />
+            <input type="text" name="filter" placeholder="Search page" onChange={this.handleChange.bind(this)} />
             <FontAwesomeIcon icon={faSearch} />
           </div>
         </Card.Body>
         <hr />
         <Card.Body>
           <ul>
-            {this.getPagesLinks()}
+            {this.props.content ? this.getPagesLinks(this.props.content) : ""}
           </ul>
         </Card.Body>
         <hr />

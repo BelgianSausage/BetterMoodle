@@ -1,3 +1,5 @@
+import React from "react";
+
 /**
  * Take a date, stored as a string, and a time, stored as string, and
  * return the date object associated with their combination.
