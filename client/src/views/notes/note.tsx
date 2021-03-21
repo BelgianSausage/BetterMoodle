@@ -117,13 +117,17 @@ class Note extends React.Component<NoteProps, NoteState> {
   }
 
   renderNote(note: INote) {
+    console.log(note);
     return (
       <>
         <Card>
           <Card.Title>
             {note.title}
             {this.renderEditOptions()}
-            <FontAwesomeIcon icon={faFlag} onClick={() => this.setState({ showFlagNoteModal: true })} />
+            <FontAwesomeIcon 
+              icon={faFlag} 
+              style={{ color: note.flagged === 1 ? "var(--red-1)" : "var(--white-1)" }}
+              onClick={() => this.setState({ showFlagNoteModal: true })} />
           </Card.Title>
           <Card.Body>
             <Card.Text>{note.description}</Card.Text>
