@@ -26,7 +26,6 @@ def get_db():
 
 def note_to_json(note):
   if note != None:
-    print(note[9])
     if len(note) >= 10:
       json = {}
       json['id'] = note[0]
@@ -38,7 +37,10 @@ def note_to_json(note):
       json['isPublic'] = note[6]
       json['createdAt'] = note[7]
       json['published'] = note[8]
-      json['flagged'] = note[9]
+      json['author'] = note[9]
+      json['flagged'] = False
+      if len(note) >= 11:
+        json['flagged'] = note[10]
 
       return json
 
@@ -412,10 +414,9 @@ def get_note(slug):
     result.append(False)
     #get flags for the note, if there is at least one flag mark not as flagged
     cursor.execute(flag_query, (result[0],))
-    flag = cursor.fetchall()
-    if len(flag) > 0:
+    flag = cursor.fetchone()
+    if flag != None:
       result[-1] = True
-      
   # append true or false on to result
   cursor.close()
   db.close()
@@ -755,10 +756,6 @@ def newFlag():
   userID = user['userId']
   noteID = request.form['noteId']
   comment = request.form['comment']
-  noteID = request.form['noteId']
-  user = jwt.decode(token, "secret", algorithms="HS256")
-  userID = user['userId']
-
   query = """
   INSERT INTO flag (UserID, NoteID, Comment)
   VALUES (%s, %s, %s);
@@ -769,7 +766,6 @@ def newFlag():
   db.commit()
   cursor.close()
   db.close()
-
   return jsonify({ 'code': 200 })
 
 if __name__ == '__main__':
