@@ -37,7 +37,7 @@ def note_to_json(note):
       json['isPublic'] = note[6]
       json['createdAt'] = note[7]
       json['published'] = note[8]
-      #json['flagged'] = note[9]
+      json['flagged'] = note[9]
 
       return json
 
@@ -305,11 +305,11 @@ def all_notes():
   FROM note
   INNER JOIN module ON note.ModuleID = module.ModuleID
   INNER JOIN usermodule on module.ModuleID = usermodule.ModuleID
-  WHERE usermodule.UserID = %s AND note.IsPublic = 1;"""
+  WHERE note.UserID = %s OR (usermodule.UserID = %s AND note.IsPublic = 1);"""
 
   db = get_db()
   cursor = db.cursor()
-  cursor.execute(query, (userID,))
+  cursor.execute(query, (userID,userID,))
   results = cursor.fetchall()
   cursor.close()
   db.close()
@@ -320,9 +320,7 @@ def all_notes():
 @app.route(BASE_URL + '/notes/new', methods=['POST'])
 def create_note():
   """
-    Create a new note. Note: the current implementation does not use the
-    UserID of the requester, and always sets the viewing permissions of the
-    note to public.
+    Create a new note, need a way to get ID of author
   """
 
   title = request.form['title']
@@ -335,8 +333,9 @@ def create_note():
 
   query = """
     INSERT INTO note (Title, Slug, Description, Body, ModuleID, IsPublic, CreatedAt, Published, UserID)
-    VALUES (%s, %s, %s, %s, %s, %s, CURDATE(), CURDATE(), 0);
+    VALUES (%s, %s, %s, %s, %s, %s, CURDATE(), CURDATE(), 1);
   """
+  # TODO: Insert correct UserID
 
   db = get_db()
   cursor = db.cursor()
@@ -399,10 +398,19 @@ def get_note(slug):
 
   # return whether it is flagged
   query = "SELECT * FROM note WHERE Slug = %s;"
+  flag_query = "SELECT * FROM flag WHERE NoteID = %s;"
   db = get_db()
   cursor = db.cursor()
   cursor.execute(query, (slug,))
-  result = cursor.fetchone()
+  result = list(cursor.fetchone())
+
+  if len(result) > 0:
+    result.append(False)
+    #get flags for the note, if there is at least one flag mark not as flagged
+    cursor.execute(flag_query, (result[0],))
+    flag = cursor.fetchall()
+    if len(flag) > 0:
+      result[-1] = True
   # append true or false on to result
   cursor.close()
   db.close()
@@ -737,7 +745,19 @@ def signup():
 """
 @app.route(BASE_URL + '/flag/new', methods=['POST'])
 def newFlag():
-  pass
+  # how to get slug and how to get userID
+  comment = request.form['comment']
+  query = """
+  INSERT INTO flag (UserID, NoteID, Comment)
+  VALUES (1, 5, %s);
+  """
+  db = get_db()
+  cursor = db.cursor()
+  cursor.execute(query, (comment,))
+  db.commit()
+  cursor.close()
+  db.close()
+  return jsonify({ 'code': 200 })
 
 if __name__ == '__main__':
   app.run(port = 8080)
