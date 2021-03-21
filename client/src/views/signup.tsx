@@ -90,11 +90,11 @@ class SignUpView extends React.Component<SignUpViewProps, SignUpViewState> {
               </Form.Group>
               <Form.Group>
                 <Form.Label>Password</Form.Label>
-                <Form.Control name="password1" placeholder="Password" required />
+                <Form.Control type="password" name="password1" placeholder="Password" required />
               </Form.Group>
               <Form.Group>
                 <Form.Label>Repeat password</Form.Label>
-                <Form.Control name="password2" placeholder="Repeat password" required />
+                <Form.Control type="password" name="password2" placeholder="Repeat password" required />
               </Form.Group>
               <Form.Group>
                 <Button type="submit">Sign up</Button>
