@@ -10,5 +10,5 @@ export default interface INote extends INavigable {
   sanitisedHTML: string;
   author: IUser;
   body?: string;
-  flagged?: number;
+  flagged?: boolean;
 }

@@ -39,6 +39,7 @@ export default class PageOutline extends React.Component<PageOutlineProps, PageO
    */
   getPagesLinks(content: INavigable[]) {
     return content.map((value: INavigable, index: number) =>  {
+      if (value == null) return;
       const children = (
         <>
           <FontAwesomeIcon icon={faHashtag} />
