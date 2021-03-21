@@ -324,6 +324,10 @@ def create_note():
     Create a new note, need a way to get ID of author
   """
 
+  token = request.form['token']
+  user = jwt.decode(token, "secret", algorithms="HS256")
+  userID = user['userId']
+
   title = request.form['title']
   moduleId = request.form['moduleId']
   description = request.form['description']
@@ -334,13 +338,12 @@ def create_note():
 
   query = """
     INSERT INTO note (Title, Slug, Description, Body, ModuleID, IsPublic, CreatedAt, Published, UserID)
-    VALUES (%s, %s, %s, %s, %s, %s, CURDATE(), CURDATE(), 1);
+    VALUES (%s, %s, %s, %s, %s, %s, CURDATE(), CURDATE(), %s);
   """
-  # TODO: Insert correct UserID
 
   db = get_db()
   cursor = db.cursor()
-  cursor.execute(query, (title, slug, description, body, moduleId, visibility))
+  cursor.execute(query, (title, slug, description, body, moduleId, visibility, userID))
   db.commit()
   cursor.close()
   db.close()
@@ -747,16 +750,18 @@ def signup():
 """
 @app.route(BASE_URL + '/flag/new', methods=['POST'])
 def newFlag():
-  # how to get slug and how to get userID
   token = request.form['token']
+  user = jwt.decode(token, "secret", algorithms="HS256")
+  userID = user['userId']
+  noteID = request.form['noteId']
   comment = request.form['comment']
   noteID = request.form['noteId']
   user = jwt.decode(token, "secret", algorithms="HS256")
   userID = user['userId']
 
   query = """
-    INSERT INTO flag (UserID, NoteID, Comment)
-    VALUES (%s, %s, %s);
+  INSERT INTO flag (UserID, NoteID, Comment)
+  VALUES (%s, %s, %s);
   """
   db = get_db()
   cursor = db.cursor()
