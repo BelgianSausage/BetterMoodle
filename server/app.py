@@ -304,7 +304,7 @@ def all_notes():
   userID = user['userId']
 
   query = """
-  SELECT note.NoteID, note.Title, note.Slug, note.Description, note.Body, note.ModuleID, note.isPublic, note.CreatedAt, note.Published, note.UserID
+  SELECT DISTINCT note.NoteID, note.Title, note.Slug, note.Description, note.Body, note.ModuleID, note.isPublic, note.CreatedAt, note.Published, note.UserID
   FROM note
   INNER JOIN module ON note.ModuleID = module.ModuleID
   INNER JOIN usermodule on module.ModuleID = usermodule.ModuleID
@@ -365,6 +365,8 @@ def edit_note():
   description = request.form['description']
   body = request.form['body']
   visibility = request.form['published']
+  if visibility == "TRUE":
+    visibility = 1
   slug = slugify(title)
 
   sql = """
