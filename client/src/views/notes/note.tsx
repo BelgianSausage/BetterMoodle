@@ -126,7 +126,7 @@ class Note extends React.Component<NoteProps, NoteState> {
             {this.renderEditOptions()}
             <FontAwesomeIcon 
               icon={faFlag} 
-              style={{ color: note.flagged === 1 ? "var(--red-1)" : "var(--white-1)" }}
+              style={{ color: note.flagged === 1 ? "var(--theme-red-1)" : "var(--theme-white-1)" }}
               onClick={() => this.setState({ showFlagNoteModal: true })} />
           </Card.Title>
           <Card.Body>

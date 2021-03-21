@@ -26,6 +26,7 @@ def get_db():
 
 def note_to_json(note):
   if note != None:
+    print(note[9])
     if len(note) >= 10:
       json = {}
       json['id'] = note[0]
@@ -411,6 +412,7 @@ def get_note(slug):
     flag = cursor.fetchall()
     if len(flag) > 0:
       result[-1] = True
+      
   # append true or false on to result
   cursor.close()
   db.close()
@@ -746,17 +748,23 @@ def signup():
 @app.route(BASE_URL + '/flag/new', methods=['POST'])
 def newFlag():
   # how to get slug and how to get userID
+  token = request.form['token']
   comment = request.form['comment']
+  noteID = request.form['noteId']
+  user = jwt.decode(token, "secret", algorithms="HS256")
+  userID = user['userId']
+
   query = """
-  INSERT INTO flag (UserID, NoteID, Comment)
-  VALUES (1, 5, %s);
+    INSERT INTO flag (UserID, NoteID, Comment)
+    VALUES (%s, %s, %s);
   """
   db = get_db()
   cursor = db.cursor()
-  cursor.execute(query, (comment,))
+  cursor.execute(query, (userID, noteID, comment,))
   db.commit()
   cursor.close()
   db.close()
+
   return jsonify({ 'code': 200 })
 
 if __name__ == '__main__':
