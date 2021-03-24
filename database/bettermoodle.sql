@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2021 at 05:23 PM
+-- Generation Time: Mar 24, 2021 at 06:04 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -49,20 +49,6 @@ CREATE TABLE `event` (
   `Description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `event`
---
-
-INSERT INTO `event` (`EventID`, `Title`, `Date`, `Start`, `End`, `UserID`, `Description`) VALUES
-(1, 'Example event 1', '2021-03-24', '19:22', '19:24', 0, 'New description.'),
-(2, 'Example event 2', '2021-03-18', '15:15', '15:16', 0, 'Example event 2.'),
-(3, 'Example event 3', '2021-03-26', '16:50', '17:50', 0, ''),
-(4, 'Example event 4', '2021-03-18', '15:18', '15:18', 0, ''),
-(5, 'Example event 5', '2021-03-18', '16:20', '17:23', 0, ''),
-(6, 'Example event 9', '2021-03-24', '13:41', '16:38', 0, '0'),
-(8, 'Example event 12', '2021-03-17', '15:42', '17:44', 0, '0'),
-(9, 'Example event 10', '2021-03-17', '18:00', '20:00', 0, '');
-
 -- --------------------------------------------------------
 
 --
@@ -81,8 +67,8 @@ CREATE TABLE `flag` (
 --
 
 INSERT INTO `flag` (`FlagID`, `UserID`, `NoteID`, `Comment`) VALUES
-(2, 1, 5, 'Testing flags'),
-(5, 1, 5, 'Even newer flag');
+(9, 1, 6, 'Test note 4 flag'),
+(10, 1, 9, 'doesn\'t provide any userful information');
 
 -- --------------------------------------------------------
 
@@ -120,6 +106,14 @@ CREATE TABLE `lesson` (
   `Published` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `lesson`
+--
+
+INSERT INTO `lesson` (`LessonID`, `ModuleID`, `Slug`, `Author`, `Title`, `Description`, `Body`, `CreatedAt`, `Published`) VALUES
+(0, 0, 'persuasive-technologies-and-behaviour-change', 0, 'Persuasive Technologies and Beha', 'HCI lecture', 'This is the body', '2021-03-24', '2021-03-24'),
+(1, 0, 'hci-loil', 0, 'HCI LOIL', 'live online interactive session for HCI', 'this is the body', '2021-03-24', '2021-03-24');
+
 -- --------------------------------------------------------
 
 --
@@ -140,7 +134,14 @@ CREATE TABLE `module` (
 INSERT INTO `module` (`ModuleID`, `Name`, `Slug`, `Description`) VALUES
 (0, 'Human Computer Interaction', 'human-computer-interaction', 'Edited description 3'),
 (1, 'Databases', 'databases', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eleifend venenatis nisi gravida consequat. Donec eleifend ipsum mi'),
-(905, 'Human Computer Interaction', 'human-computer-interaction', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae lacus tortor. Curabitur eu metus sapien. Etiam quis diam fe');
+(2, 'Fundamentals of Machine Learning', 'fundamentals-of-machine-learning', 'This course teaches the background needed for computer graphics, computer vision, computer music.\r\n\r\nThe course has the followin'),
+(3, 'Foundations of Computation', 'foundations-of-computation', 'This unit introduces formal models of computation: finite automata, pushdown automata, Turing machines, and the corresponding cl'),
+(4, 'Fundamentals of Visual Computing', 'fundamentals-of-visual-computing', 'This is an introductory course that teaches the essential mathematical and computational foundations for Computer Graphics and C'),
+(5, 'Artificial Intelligence', 'artificial-intelligence', 'Introduction to artificial intelligence'),
+(6, 'Comparative Programming Language', 'comparative-programming-languages', 'There are very many different styles of programming language, and very many different ways programming languages provide support'),
+(7, 'Data Structures and Algorithms', 'data-structures-and-algorithms', 'My name is Christof and I will be your lecturer during this unit. I love teaching Data Structures & Algorithms as it is at the c'),
+(8, 'Functional Programming', 'functional-programming', 'This unit is an introduction to functional programming. It covers the basic notions and techniques, using the programming langua'),
+(9, 'Integrated Group-based Project', 'integrated-group-based-project', 'The Integrated Project presents you with an opportunity to bring together the skills you have gained in the first year and the n');
 
 -- --------------------------------------------------------
 
@@ -167,8 +168,12 @@ CREATE TABLE `note` (
 
 INSERT INTO `note` (`NoteID`, `Title`, `Slug`, `Description`, `Body`, `ModuleID`, `IsPublic`, `CreatedAt`, `Published`, `UserID`) VALUES
 (3, 'Example note 3', 'example-note-3', 'a', 'axcdfdfdd', 0, 0, '2021-03-12', '2021-03-12', 1),
-(4, 'Example note 2', 'example-note-2', 'dsdsdss', 'sdsdss', 1, 1, '2021-03-16', '2021-03-16', 1),
-(5, 'Heuristic evaluation', 'heuristic-evaluation', '10 Heuristics for HCI', 'blah blah blah', 0, 0, '2021-03-21', '2021-03-21', 1);
+(4, 'Example note 2', 'example-note-2', 'dsdsdss', 'sdsdss', 0, 0, '2021-03-16', '2021-03-16', 1),
+(5, 'Heuristic evaluation', 'heuristic-evaluation', '10 Heuristics for HCI', 'blah blah blah', 0, 1, '2021-03-21', '2021-03-21', 1),
+(6, 'Note 4', 'note-4', 'Test', 'test', 0, 0, '2021-03-21', '2021-03-21', 1),
+(7, 'Databases', 'databases', 'test', 'test', 0, 0, '2021-03-21', '2021-03-21', 2),
+(8, 'Hello', 'hello', 'Hello', 'Hello', 0, 1, '2021-03-24', '2021-03-24', 2),
+(9, 'hello 2', 'hello-2', 'hello 2', 'hello 2', 0, 0, '2021-03-24', '2021-03-24', 2);
 
 -- --------------------------------------------------------
 
@@ -191,7 +196,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`UserID`, `UserName`, `FName`, `LName`, `InstitutionID`, `Privilege`, `Hash`) VALUES
-(1, 'a', 'a', 'a', 0, 0, '$2b$12$GoSfWzTUGAtzQImt1h2ZcuaQlB8vI5FaKPwWAImOX9ilvUh4sPAwy');
+(1, 'a', 'a', 'a', 0, 0, '$2b$12$GoSfWzTUGAtzQImt1h2ZcuaQlB8vI5FaKPwWAImOX9ilvUh4sPAwy'),
+(2, 'test', 'test', 'test', 0, 0, '$2b$12$yqpE5SCJ9PvKZwKLJfNkaeNHqzJZJKBHdaNpHVcCYAPM22pV4B7Hi'),
+(3, 'test2', 'test2', 'test2', 0, 0, '$2b$12$IzPmFyUw36m8FOzzu477g.uGR6dJJZuIiUhJmY5LG221xOGNBu3kG');
 
 -- --------------------------------------------------------
 
@@ -210,7 +217,19 @@ CREATE TABLE `usermodule` (
 --
 
 INSERT INTO `usermodule` (`UserModuleID`, `UserID`, `ModuleID`) VALUES
-(0, 1, 0);
+(0, 1, 0),
+(1, 2, 0),
+(2, 2, 1),
+(3, 1, 1),
+(4, 1, 2),
+(5, 1, 2),
+(6, 1, 3),
+(7, 1, 4),
+(8, 1, 5),
+(9, 1, 6),
+(10, 1, 7),
+(11, 1, 8),
+(12, 1, 9);
 
 --
 -- Indexes for dumped tables
@@ -287,25 +306,25 @@ ALTER TABLE `usermodule`
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `EventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `EventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `flag`
 --
 ALTER TABLE `flag`
-  MODIFY `FlagID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `FlagID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `note`
 --
 ALTER TABLE `note`
-  MODIFY `NoteID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `NoteID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

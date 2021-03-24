@@ -335,6 +335,8 @@ def create_note():
   description = request.form['description']
   body = request.form['body']
   visibility = request.form['published']
+  if visibility == "TRUE":
+    visibility = 1
   slug = slugify(title)
   
 
@@ -555,15 +557,19 @@ def get_all_events():
     their UserID as a listener in the UserEvent bridging table.
   """
 
-  #print(request.args.get("token"))
+  token = request.args.get("token")
+  user = jwt.decode(token, "secret", algorithms="HS256")
 
-  db = get_db()
-  query = "SELECT * FROM event"
-  cursor = db.cursor()
-  cursor.execute(query)
-  results = cursor.fetchall()
-  cursor.close()
-  db.close()
+  if user != None:
+
+
+    db = get_db()
+    query = "SELECT * FROM event WHERE UserID = %s;"
+    cursor = db.cursor()
+    cursor.execute(query, (user['userId'],))
+    results = cursor.fetchall()
+    cursor.close()
+    db.close()
 
   return jsonify([event_to_json(event) for event in results])
 
@@ -587,13 +593,13 @@ def new_event():
   if user != None:
     if user['userId'] != None:
       query = """
-        INSERT INTO event (Title, Date, Start, End, Description)
-        VALUES (%s, %s, %s, %s, %s);
+        INSERT INTO event (Title, Date, Start, End, Description, UserID)
+        VALUES (%s, %s, %s, %s, %s, %s);
       """
 
       db = get_db()
       cursor = db.cursor()
-      cursor.execute(query, (title, date, start, end, description,))
+      cursor.execute(query, (title, date, start, end, description, user['userId']))
       db.commit()
       cursor.close()
       db.close()
